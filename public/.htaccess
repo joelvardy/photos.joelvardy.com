@@ -1,0 +1,24 @@
+Header unset ETag
+FileETag None
+
+AddDefaultCharset utf-8
+
+<IfModule mod_rewrite.c>
+
+	Options -Multiviews -Indexes +FollowSymLinks
+	RewriteEngine On
+	RewriteBase /
+	DirectorySlash Off
+
+	# Remove trailing slash
+	RewriteRule ^(.*)\/(\?.*)?$ $1$2 [R=301,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ index.php [L]
+
+</IfModule>
+
+# One week
+<filesMatch ".(css|eot|svg|ttf|woff|ico|jpg|js)$">
+	Header set Cache-Control "max-age=604800, public, must-revalidate"
+</FilesMatch>
