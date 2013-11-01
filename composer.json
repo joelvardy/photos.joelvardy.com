@@ -4,5 +4,10 @@
 		"joelvardy/routes": "dev-master",
 		"joelvardy/template": "dev-master"
 	},
+	"autoload": {
+		"psr-0": {
+			"App": "app/libraries/"
+		}
+	},
 	"minimum-stability": "dev"
 }
