@@ -1,0 +1,10 @@
+@import "compass/reset";
+@import "compass/css3";
+
+*, *:after, *:before {
+	@include box-sizing(border-box);
+}
+
+html {
+	background: #f0f0f0;
+}
