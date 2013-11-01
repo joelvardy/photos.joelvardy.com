@@ -1,0 +1,24 @@
+div.grid {
+	background: orange;
+	overflow: hidden;
+	padding: 30px 0 0 30px;
+	width: 720px;
+}
+	div.grid div.photo {
+		background: #ff0055;
+		display: block;
+		float: left;
+		margin: 0 30px 30px 0;
+	}
+	div.grid div.photo.square {
+		height: 200px;
+		width: 200px;
+	}
+	div.grid div.photo.wide {
+		height: 200px;
+		width: 430px;
+	}
+	div.grid div.photo.tall {
+		height: 430px;
+		width: 200px;
+	}
