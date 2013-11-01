@@ -1,10 +1,12 @@
+@import "compass/css3";
+
 div.grid {
-	background: orange;
 	overflow: hidden;
 	padding: 2.5vw 0 0 2.5vw;
 }
 	div.grid div.photo {
-		background: #ff0055;
+		background-position: center center;
+		@include background-size(cover);
 		display: block;
 		float: left;
 		margin: 0 2.5vw 2.5vw 0;
@@ -21,3 +23,16 @@ div.grid {
 		height: 62.5vw;
 		width: 30vw;
 	}
+
+
+/*
+	Mobile
+*/
+@media screen and (max-width: 758px) {
+
+	div.grid div.photo {
+		height: 95vw !important;
+		width: 95vw !important;
+	}
+
+}
