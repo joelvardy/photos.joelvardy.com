@@ -9,6 +9,6 @@ $routes->get('/', function () {
 
 	// echo Template::build('home');
 
-	var_dump($photos->data());
+	var_dump($photos->read());
 
 });

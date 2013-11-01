@@ -1,5 +1,6 @@
 <?php
 
 return (object) array(
-	'directory' => PHOTOS_PATH
+	'original_directory' => PHOTOS_PATH,
+	'processed_directory' => PUBLIC_PATH.'/assets/photos'
 );
