@@ -9,3 +9,6 @@ Icon
 
 # Compass
 .sass-cache
+
+# Composer
+vendor

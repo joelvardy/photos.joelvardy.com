@@ -1,0 +1,159 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "8927d5f78cd6892e8b4df17c02fd1e70",
+    "packages": [
+        {
+            "name": "joelvardy/config",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joelvardy/config.git",
+                "reference": "38679a3afda17ab62baf4fe829ee5f7f71922c11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joelvardy/config/zipball/38679a3afda17ab62baf4fe829ee5f7f71922c11",
+                "reference": "38679a3afda17ab62baf4fe829ee5f7f71922c11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Joelvardy": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joel Vardy",
+                    "email": "info@joelvardy.com",
+                    "homepage": "https://joelvardy.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Application configuration library.",
+            "homepage": "https://github.com/joelvardy/config",
+            "keywords": [
+                "config",
+                "configuration"
+            ],
+            "time": "2013-10-02 22:08:31"
+        },
+        {
+            "name": "joelvardy/routes",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joelvardy/routes.git",
+                "reference": "16d0142849ad33d1779316bc978336f882e0073d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joelvardy/routes/zipball/16d0142849ad33d1779316bc978336f882e0073d",
+                "reference": "16d0142849ad33d1779316bc978336f882e0073d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Joelvardy": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joel Vardy",
+                    "email": "info@joelvardy.com",
+                    "homepage": "http://joelvardy.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple RESTful routing",
+            "homepage": "https://github.com/joelvardy/routes",
+            "keywords": [
+                "rest",
+                "restful",
+                "route",
+                "routing"
+            ],
+            "time": "2013-10-03 14:26:50"
+        },
+        {
+            "name": "joelvardy/template",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joelvardy/template.git",
+                "reference": "4a8a2b7ee24fece8a6f019e0a8d214b5f72a914a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joelvardy/template/zipball/4a8a2b7ee24fece8a6f019e0a8d214b5f72a914a",
+                "reference": "4a8a2b7ee24fece8a6f019e0a8d214b5f72a914a",
+                "shasum": ""
+            },
+            "require": {
+                "joelvardy/config": "dev-master",
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Joelvardy": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joel Vardy",
+                    "email": "info@joelvardy.com",
+                    "homepage": "https://joelvardy.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple vanilla PHP templating library.",
+            "homepage": "https://github.com/joelvardy/template",
+            "keywords": [
+                "template",
+                "templating"
+            ],
+            "time": "2013-10-02 22:15:52"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "joelvardy/config": 20,
+        "joelvardy/routes": 20,
+        "joelvardy/template": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}

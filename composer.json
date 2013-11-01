@@ -1,0 +1,8 @@
+{
+	"require": {
+		"joelvardy/config": "dev-master",
+		"joelvardy/routes": "dev-master",
+		"joelvardy/template": "dev-master"
+	},
+	"minimum-stability": "dev"
+}
