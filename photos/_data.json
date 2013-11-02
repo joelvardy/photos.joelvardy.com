@@ -2,5 +2,10 @@
 	{
 		"title": "Freshly Baked Cookies",
 		"filename": "cookies.jpg"
+	},
+	{
+		"title": "Full Face",
+		"description": "Some metadata (could be used for anything)",
+		"filename": "full-face.jpg"
 	}
 ]

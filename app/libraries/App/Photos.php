@@ -12,8 +12,7 @@ use Joelvardy\Config;
 class Photos {
 
 
-	protected $original_directory;
-	protected $processed_directory;
+	protected $directories;
 
 
 	/**
@@ -25,8 +24,22 @@ class Photos {
 
 		$config = Config::value('photos');
 
-		$this->original_directory = $config->original_directory;
-		$this->processed_directory = $config->processed_directory;
+		$this->directories = (object) array(
+			'original' => $config->original_directory,
+			'processed' => $config->processed_directory
+		);
+
+	}
+
+
+	/**
+	 * Return directory path
+	 *
+	 * @return	array
+	 */
+	public function directory($type) {
+
+		return $this->directories->$type;
 
 	}
 
@@ -38,7 +51,21 @@ class Photos {
 	 */
 	public function data() {
 
-		return json_decode(file_get_contents($this->original_directory.'/_data.json'));
+		$photos = json_decode(file_get_contents($this->directory('original').'/_data.json'));
+
+		foreach ($photos as $photo) {
+
+			$filepath = $this->directory('original').'/'.$photo->filename;
+
+			// Ensure the original file exists
+			if ( ! file_exists($filepath)) continue;
+
+			// Add MD5 hash to each photo
+			$photo->hash = md5_file($filepath);
+
+		}
+
+		return $photos;
 
 	}
 
@@ -56,10 +83,10 @@ class Photos {
 		foreach ($data as $photo) {
 
 			// Ensure the original file exists
-			if ( ! file_exists($this->original_directory.'/'.$photo->filename)) continue;
+			if ( ! file_exists($this->directory('original').'/'.$photo->filename)) continue;
 
 			// Ensure the processed files exist
-			if ( ! file_exists($this->processed_directory.'/'.$photo->filename)) continue;
+			if ( ! file_exists($this->directory('processed').'/'.$photo->filename)) continue;
 
 		}
 

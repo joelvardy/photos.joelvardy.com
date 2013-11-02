@@ -5,11 +5,39 @@
 require('init.php');
 
 use App\Console;
+use App\Photos;
+use Joelvardy\Config;
 
 Console::title('Process Photos');
 
-Console::output('Some message');
-Console::output('Some message');
-Console::output('Some message');
+$photos = new Photos();
+
+// Read data from file
+$data = $photos->data();
+
+foreach ($data as $photo) {
+
+	// If the hash hasn't been set the file can't be found
+	if ( ! isset($photo->hash)) {
+		Console::output('The file '.$photo->filename.' could not be found.');
+		continue;
+	}
+
+	// Generate the filepath to the processed folder
+	$photo_folder = $photos->directory('processed').'/'.$photo->hash;
+
+	$sizes = Config::value('photos')->sizes;
+	foreach ($sizes as $size => $max_dimension) {
+
+		// Check whether each size exists
+		if ( ! file_exists($photo_folder.'/'.$size.'.jpg')) {
+
+			Console::output('We need to process the '.$size.' version of '.$photo->filename);
+
+		}
+
+	}
+
+}
 
 Console::summary('Processing failed!');
