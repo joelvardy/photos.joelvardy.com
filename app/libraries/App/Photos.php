@@ -12,7 +12,7 @@ use Joelvardy\Config;
 class Photos {
 
 
-	protected $directories;
+	protected $config;
 
 
 	/**
@@ -22,24 +22,44 @@ class Photos {
 	 */
 	public function __construct() {
 
-		$config = Config::value('photos');
-
-		$this->directories = (object) array(
-			'original' => $config->original_directory,
-			'processed' => $config->processed_directory
-		);
+		$this->config = Config::value('photos');
 
 	}
 
 
 	/**
-	 * Return directory path
+	 * Return directory path or false
 	 *
-	 * @return	array
+	 * @return	string|boolean
 	 */
 	public function directory($type) {
 
-		return $this->directories->$type;
+		switch ($type) {
+
+			case 'original':
+				return $this->config->original_directory;
+				break;
+
+			case 'processed':
+				return $this->config->processed_directory;
+				break;
+
+			default:
+				return false;
+
+		}
+
+	}
+
+
+	/**
+	 * Return photo sizes
+	 *
+	 * @return	array
+	 */
+	public function sizes() {
+
+		return $this->config->sizes;
 
 	}
 
