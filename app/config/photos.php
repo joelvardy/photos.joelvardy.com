@@ -5,6 +5,7 @@ return (object) array(
 	'processed_directory' => '/assets/photos',
 	'sizes' => array(
 		'large' => 2000,
-		'small' => 800
-	)
+		'small' => 1000
+	),
+	'quality' => 75
 );

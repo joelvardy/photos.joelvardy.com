@@ -54,7 +54,7 @@ foreach ($data as $photo) {
 			}
 
 			try {
-				$image->save($filepath, 70);
+				$image->save($filepath, $photos->quality());
 				Console::output("\t<success>Saved processed image</success>");
 			} catch (Exception $e) {
 				Console::output("\t<error>Could not save processed image</error>");

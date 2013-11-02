@@ -65,6 +65,18 @@ class Photos {
 
 
 	/**
+	 * Return photo quality
+	 *
+	 * @return	integer
+	 */
+	public function quality() {
+
+		return (integer) $this->config->quality;
+
+	}
+
+
+	/**
 	 * Read data
 	 *
 	 * @return	array
