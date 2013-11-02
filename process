@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+// Initialise the application
+require('init.php');
+
+use App\Console;
+
+Console::title('Process Photos');
+
+Console::output('Some message');
+Console::output('Some message');
+Console::output('Some message');
+
+Console::summary('Processing failed!');
