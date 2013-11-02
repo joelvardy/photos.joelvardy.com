@@ -5,7 +5,38 @@
 	},
 	{
 		"title": "Full Face",
-		"description": "Some metadata (could be used for anything)",
 		"filename": "full-face.jpg"
+	},
+	{
+		"title": "Awesome Ribs",
+		"filename": "ribs.jpg"
+	},
+	{
+		"title": "Farmer Johns Sunset",
+		"filename": "fj-sunset.jpg"
+	},
+	{
+		"title": "Freezing Ice Bar",
+		"filename": "ice-bar.jpg"
+	},
+	{
+		"title": "My Morewood",
+		"filename": "morewood.jpg"
+	},
+	{
+		"title": "Sunset",
+		"filename": "sunset.jpg"
+	},
+	{
+		"title": "Bright Berlin Wall",
+		"filename": "berlin-wall.jpg"
+	},
+	{
+		"title": "Gloomy Scottish Biking",
+		"filename": "gloomy-biking.jpg"
+	},
+	{
+		"title": "Kinky Kaylee",
+		"filename": "kaylee.jpg"
 	}
 ]
