@@ -11,18 +11,33 @@
 
 			<?php
 
+				$column = 1;
+				$tall = false;
+
 				foreach ($photos as $photo) {
 
 					// Is this image wide or tall
-					if ($photo->aspect_ratio > 2) {
+					if ($photo->aspect_ratio > 2 && ($column == 1 || $column == 2)) {
 						$orientation = 'wide';
-					} else if ($photo->aspect_ratio < 1) {
+						$column += 2;
+					} else if ($photo->aspect_ratio < 1 && $column == 1) {
 						$orientation = 'tall';
+						$column++;
+						$tall = true;
 					} else {
 						$orientation = 'square';
+						$column++;
 					}
 
 					echo '<div class="photo '.$orientation.'" style="background-image:url('.$photo->sizes['small'].');"></div>';
+
+					if ($column > 3) {
+						$column = 1;
+						if ($tall) {
+							$column = 2;
+							$tall = false;
+						}
+					}
 
 				}
 
