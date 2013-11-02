@@ -7,8 +7,8 @@ $routes->get('/', function () {
 
 	$photos = new Photos();
 
-	// echo Template::build('home');
-
-	var_dump($photos->read());
+	$view = Template::build('home');
+	$view->photos = $photos->read();
+	echo $view;
 
 });

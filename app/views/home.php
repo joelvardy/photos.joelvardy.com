@@ -8,16 +8,15 @@
 	</head>
 	<body>
 		<div class="grid">
-			<div class="photo square" style="background-image:url('/assets/photos/01.jpg');"></div>
-			<div class="photo wide" style="background-image:url('/assets/photos/02.jpg');"></div>
-			<div class="photo square" style="background-image:url('/assets/photos/03.jpg');"></div>
-			<div class="photo square" style="background-image:url('/assets/photos/04.jpg');"></div>
-			<div class="photo square" style="background-image:url('/assets/photos/05.jpg');"></div>
-			<div class="photo tall" style="background-image:url('/assets/photos/06.jpg');"></div>
-			<div class="photo square" style="background-image:url('/assets/photos/07.jpg');"></div>
-			<div class="photo square" style="background-image:url('/assets/photos/08.jpg');"></div>
-			<div class="photo square" style="background-image:url('/assets/photos/09.jpg');"></div>
-			<div class="photo square" style="background-image:url('/assets/photos/10.jpg');"></div>
+
+			<?php
+
+				foreach ($photos as $photo) {
+					echo '<div class="photo square" style="background-image:url('.$photo->sizes['small'].');"></div>';
+				}
+
+			?>
+
 		</div>
 	</body>
 </html>
