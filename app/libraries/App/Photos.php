@@ -134,7 +134,7 @@ class Photos {
 
 		}
 
-		return array_reverse($photos);
+		return $photos;
 
 	}
 
