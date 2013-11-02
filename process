@@ -14,11 +14,14 @@ $photos = new Photos();
 // Read data from file
 $data = $photos->data();
 
+$issues = 0;
+
 foreach ($data as $photo) {
 
 	// If the hash hasn't been set the file can't be found
 	if ( ! isset($photo->hash)) {
 		Console::output('The file '.$photo->filename.' could not be found.');
+		$issues++;
 		continue;
 	}
 
@@ -38,4 +41,4 @@ foreach ($data as $photo) {
 
 }
 
-Console::summary('Processing failed!');
+Console::summary($issues > 0 ? 'Warning, '.$issues.' issue(s) raised' : 'Processing photos was successful');
