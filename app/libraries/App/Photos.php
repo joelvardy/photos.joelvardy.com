@@ -97,18 +97,32 @@ class Photos {
 	 */
 	public function read() {
 
+		$photos = array();
+
 		// Read data from file
 		$data = $this->data();
 
 		foreach ($data as $photo) {
 
-			// Ensure the original file exists
-			if ( ! file_exists($this->directory('original').'/'.$photo->filename)) continue;
+			// If the hash hasn't been set the file can't be found
+			if ( ! isset($photo->hash)) continue;
 
-			// Ensure the processed files exist
-			if ( ! file_exists($this->directory('processed').'/'.$photo->filename)) continue;
+			// Generate the filepath to the processed folder
+			$photo_folder = $this->directory('processed').'/'.$photo->hash;
+
+			// Check whether each size exists
+			$status = true;
+			foreach ($this->sizes() as $size => $max_dimension) {
+				if ( ! file_exists($photo_folder.'/'.$size.'.jpg')) $status = false;
+			}
+
+			if ($status) {
+				$photos[] = $photo;
+			}
 
 		}
+
+		return $photos;
 
 	}
 
