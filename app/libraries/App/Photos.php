@@ -86,6 +86,7 @@ class Photos {
 			// Define the largest dimension
 			list($width, $height, $type, $attr) = getimagesize($filepath);
 			$photo->largest_dimension = ($height > $width ? 'height' : 'width');
+			$photo->aspect_ratio = $width / $height;
 
 		}
 
