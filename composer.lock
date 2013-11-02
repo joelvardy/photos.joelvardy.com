@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4bc9d61a44b32a76756ac193afb79b73",
+    "hash": "0eed17649c1b05eded22ff90cf0b4f78",
     "packages": [
         {
             "name": "illuminate/support",
@@ -237,6 +237,57 @@
                 "templating"
             ],
             "time": "2013-10-02 22:15:52"
+        },
+        {
+            "name": "kevinlebrun/colors.php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kevinlebrun/colors.php.git",
+                "reference": "a678335f5942b940efda4d8a411d824b2d97f1df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/a678335f5942b940efda4d8a411d824b2d97f1df",
+                "reference": "a678335f5942b940efda4d8a411d824b2d97f1df",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Colors": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Le Brun",
+                    "email": "lebrun.k@gmail.com",
+                    "homepage": "http://kevinlebrun.fr",
+                    "role": "developer"
+                }
+            ],
+            "description": "Colors for PHP CLI scripts",
+            "homepage": "https://github.com/kevinlebrun/colors.php",
+            "keywords": [
+                "cli",
+                "color",
+                "colors",
+                "console",
+                "shell"
+            ],
+            "time": "2013-07-26 10:25:46"
         }
     ],
     "packages-dev": [
@@ -250,7 +301,8 @@
         "joelvardy/config": 20,
         "joelvardy/routes": 20,
         "joelvardy/template": 20,
-        "intervention/image": 20
+        "intervention/image": 20,
+        "kevinlebrun/colors.php": 20
     },
     "platform": [
 

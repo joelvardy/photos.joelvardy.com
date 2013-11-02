@@ -3,7 +3,8 @@
 		"joelvardy/config": "dev-master",
 		"joelvardy/routes": "dev-master",
 		"joelvardy/template": "dev-master",
-		"intervention/image": "dev-master"
+		"intervention/image": "dev-master",
+		"kevinlebrun/colors.php": "dev-master"
 	},
 	"autoload": {
 		"psr-0": {

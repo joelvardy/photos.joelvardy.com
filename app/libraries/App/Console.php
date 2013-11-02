@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Colors\Color;
+
 /**
  * Console library
  *
@@ -21,7 +23,7 @@ class Console {
 		for ($i = 1; $i <= strlen($title); $i++) {
 			$underline .= '=';
 		}
-		print(strtoupper($title)."\n".$underline."\n\n");
+		print(strtoupper($title).PHP_EOL.$underline.PHP_EOL.PHP_EOL);
 
 	}
 
@@ -33,7 +35,14 @@ class Console {
 	 */
 	public static function output($string) {
 
-		print($string."\n");
+		$colour = new Color();
+
+		$colour->setTheme(array(
+			'success' => 'green',
+			'error' => 'red'
+		));
+
+		print($colour($string)->colorize().PHP_EOL);
 
 	}
 
@@ -50,7 +59,7 @@ class Console {
 			$line .= '-';
 		}
 
-		print("\n{$line}\n{$string}\n{$line}\n\n");
+		print(PHP_EOL.$line.PHP_EOL.$string.PHP_EOL.$line.PHP_EOL.PHP_EOL);
 
 	}
 
