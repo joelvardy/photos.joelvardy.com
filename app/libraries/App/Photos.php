@@ -41,7 +41,7 @@ class Photos {
 				break;
 
 			case 'processed':
-				return $this->config->processed_directory;
+				return PUBLIC_PATH.$this->config->processed_directory;
 				break;
 
 			default:
@@ -117,10 +117,16 @@ class Photos {
 			// Check whether each size exists
 			$status = true;
 			foreach ($this->sizes() as $size => $max_dimension) {
-				if ( ! file_exists($photo_folder.'/'.$size.'.jpg')) $status = false;
+				if (file_exists($photo_folder.'/'.$size.'.jpg')) {
+					$photo->sizes[$size] = $this->config->processed_directory.'/'.$photo->hash.'/'.$size.'.jpg';
+				}
 			}
 
+			// Clean up data
 			if ($status) {
+				unset($photo->filename);
+				unset($photo->hash);
+				unset($photo->largest_dimension);
 				$photos[] = $photo;
 			}
 
