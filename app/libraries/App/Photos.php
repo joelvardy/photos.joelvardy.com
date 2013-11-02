@@ -71,7 +71,7 @@ class Photos {
 	 */
 	public function data() {
 
-		$photos = json_decode(file_get_contents($this->directory('original').'/_data.json'));
+		$photos = (array) json_decode(file_get_contents($this->directory('original').'/_data.json'));
 
 		foreach ($photos as $photo) {
 
@@ -134,7 +134,7 @@ class Photos {
 
 		}
 
-		return $photos;
+		return array_reverse($photos);
 
 	}
 
