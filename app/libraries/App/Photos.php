@@ -83,6 +83,10 @@ class Photos {
 			// Add MD5 hash to each photo
 			$photo->hash = md5_file($filepath);
 
+			// Define the largest dimension
+			list($width, $height, $type, $attr) = getimagesize($filepath);
+			$photo->largest_dimension = ($height > $width ? 'height' : 'width');
+
 		}
 
 		return $photos;
