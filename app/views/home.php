@@ -14,11 +14,12 @@
 				foreach ($photos as $photo) {
 
 					// Is this image wide or tall
-					$orientation = 'square';
 					if ($photo->aspect_ratio > 2) {
 						$orientation = 'wide';
 					} else if ($photo->aspect_ratio < 1) {
 						$orientation = 'tall';
+					} else {
+						$orientation = 'square';
 					}
 
 					echo '<div class="photo '.$orientation.'" style="background-image:url('.$photo->sizes['small'].');"></div>';
