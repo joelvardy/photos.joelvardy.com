@@ -2,7 +2,8 @@
 	"require": {
 		"joelvardy/config": "dev-master",
 		"joelvardy/routes": "dev-master",
-		"joelvardy/template": "dev-master"
+		"joelvardy/template": "dev-master",
+		"intervention/image": "dev-master"
 	},
 	"autoload": {
 		"psr-0": {
