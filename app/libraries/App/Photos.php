@@ -119,6 +119,8 @@ class Photos {
 			foreach ($this->sizes() as $size => $max_dimension) {
 				if (file_exists($photo_folder.'/'.$size.'.jpg')) {
 					$photo->sizes[$size] = $this->config->processed_directory.'/'.$photo->hash.'/'.$size.'.jpg';
+				} else {
+					$status = false;
 				}
 			}
 
