@@ -12,3 +12,6 @@ Icon
 
 # Composer
 vendor
+
+# Don't save processed images in version control
+public/assets/photos/*
