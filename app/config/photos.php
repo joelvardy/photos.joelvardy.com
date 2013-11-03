@@ -7,5 +7,5 @@ return (object) array(
 		'large' => 2000,
 		'small' => 1000
 	),
-	'quality' => 75
+	'quality' => 70
 );
