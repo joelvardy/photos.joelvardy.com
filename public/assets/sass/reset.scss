@@ -1,11 +1,12 @@
 @import "compass/reset";
 @import "compass/css3";
+@import "_variables";
 
 *, *:after, *:before {
 	@include box-sizing(border-box);
 }
 
 html {
-	background: #f0f0f0;
+	background: $backgroundColour;
 	position: relative;
 }
