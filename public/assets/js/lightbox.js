@@ -77,6 +77,8 @@ Lightbox.prototype = {
 
 	_updatePhoto: function(element) {
 
+		var _this = this;
+
 		var windowAspect = (window.innerWidth - (this.settings.spacing * 2)) / (window.innerHeight - (this.settings.spacing * 2)),
 			photoAspect = parseFloat(element.dataset.aspectRatio);
 
@@ -93,6 +95,13 @@ Lightbox.prototype = {
 		this.elements.overlayPhoto.style.top = Math.floor((window.innerHeight - photoHeight) / 2)+'px';
 		this.elements.overlayPhoto.style.left = Math.floor((window.innerWidth - photoWidth) / 2)+'px';
 		this.elements.overlayPhoto.style.backgroundImage = element.style.backgroundImage;
+
+		// Load large image
+		var image = new Image();
+		image.onload = function() {
+			_this.elements.overlayPhoto.style.backgroundImage = 'url('+element.dataset.large+')';
+		}
+		image.src = element.dataset.large;
 
 	},
 
