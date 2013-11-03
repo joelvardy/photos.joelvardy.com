@@ -23,13 +23,16 @@
 						$orientation = 'square';
 					}
 
-					echo '<div class="photo '.$orientation.'" style="background-image:url('.$photo->sizes['small'].');"></div>';
+					echo '<div class="photo '.$orientation.'" data-aspect-ratio="'.$photo->aspect_ratio.'" style="background-image:url('.$photo->sizes['small'].');"></div>';
 
 				}
 
 			?>
 
 		</div>
+
+		<div class="overlay"></div>
+		<div class="overlay-photo"></div>
 
 		<script src="/assets/js/utilities.js"></script>
 		<script src="/assets/js/main.js"></script>
