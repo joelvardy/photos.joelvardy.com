@@ -34,9 +34,9 @@ Lightbox.prototype = {
 
 		// Add overlay photo
 		if ( ! document.querySelector(this.settings.overlayPhotoClass)) {
-			var overlayElement = document.createElement('div');
-			overlayElement.classList.add(this.settings.overlayPhotoClass);
-			this.elements.overlayPhoto = document.body.appendChild(overlayElement);
+			var overlayPhotoElement = document.createElement('div');
+			overlayPhotoElement.classList.add(this.settings.overlayPhotoClass);
+			this.elements.overlayPhoto = document.body.appendChild(overlayPhotoElement);
 		}
 
 	},
