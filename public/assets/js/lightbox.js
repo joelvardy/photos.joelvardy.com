@@ -25,6 +25,10 @@ Lightbox.prototype = {
 
 	_setup: function() {
 
+		var _this = this;
+
+		this.isOpen = false;
+
 		// Add overlay class
 		if ( ! document.querySelector(this.settings.overlayClass)) {
 			var overlayElement = document.createElement('div');
@@ -32,12 +36,22 @@ Lightbox.prototype = {
 			this.elements.overlay = document.body.appendChild(overlayElement);
 		}
 
+		// Close lightbox on click
+		this.elements.overlay.addEventListener('click', function() {
+			_this._hide();
+		});
+
 		// Add overlay photo
 		if ( ! document.querySelector(this.settings.overlayPhotoClass)) {
 			var overlayPhotoElement = document.createElement('div');
 			overlayPhotoElement.classList.add(this.settings.overlayPhotoClass);
 			this.elements.overlayPhoto = document.body.appendChild(overlayPhotoElement);
 		}
+
+		// Close lightbox on click
+		this.elements.overlayPhoto.addEventListener('click', function() {
+			_this._hide();
+		});
 
 	},
 
@@ -47,6 +61,8 @@ Lightbox.prototype = {
 		this.elements.overlayPhoto.style.display = 'block';
 		this.elements.body.style.overflow = 'hidden';
 
+		this.isOpen = true;
+
 	},
 
 	_hide: function() {
@@ -54,6 +70,8 @@ Lightbox.prototype = {
 		this.elements.body.style.overflow = 'auto';
 		this.elements.overlayPhoto.style.display = 'none';
 		this.elements.overlay.style.display = 'none';
+
+		this.isOpen = false;
 
 	},
 
@@ -101,21 +119,29 @@ Lightbox.prototype = {
 	},
 
 	previous: function() {
+
+		if ( ! this.isOpen) return;
+
 		if (typeof this.settings.elements[(this.currentIndex - 1)] == 'undefined') {
 			this.currentIndex = (this.settings.elements.length - 1);
 		}
 		var previousElement = this.settings.elements[(this.currentIndex - 1)];
 		this._updatePhoto(previousElement);
 		this.currentIndex--;
+
 	},
 
 	next: function() {
+
+		if ( ! this.isOpen) return;
+
 		if (typeof this.settings.elements[(this.currentIndex + 1)] == 'undefined') {
 			this.currentIndex = -1;
 		}
 		var previousElement = this.settings.elements[(this.currentIndex + 1)];
 		this._updatePhoto(previousElement);
 		this.currentIndex++;
+
 	}
 
 }
