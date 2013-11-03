@@ -89,6 +89,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Initialise lightbox
 	var photos = document.querySelectorAll('div.grid div.photo');
-	new Lightbox(photos, 20);
+	var lightbox = new Lightbox(photos, 20);
+
+	// Add events to key presses
+	document.onkeydown = function(event) {
+		switch (event.keyCode) {
+
+			// Close lightbox on escape
+			case 27:
+				lightbox.close();
+				break;
+
+		}
+	}
 
 });

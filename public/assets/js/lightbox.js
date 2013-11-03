@@ -10,7 +10,7 @@ function Lightbox(elements, spacing) {
 
 	// Define elements
 	this.elements = {
-		//
+		body: document.querySelector('body')
 	}
 
 	// Setup elements
@@ -41,6 +41,22 @@ Lightbox.prototype = {
 
 	},
 
+	_show: function() {
+
+		this.elements.overlay.style.display = 'block';
+		this.elements.overlayPhoto.style.display = 'block';
+		this.elements.body.style.overflow = 'hidden';
+
+	},
+
+	_hide: function() {
+
+		this.elements.body.style.overflow = 'auto';
+		this.elements.overlayPhoto.style.display = 'none';
+		this.elements.overlay.style.display = 'none';
+
+	},
+
 	_registerClickListners: function() {
 
 		var _this = this;
@@ -65,9 +81,15 @@ Lightbox.prototype = {
 				_this.elements.overlayPhoto.style.left = Math.floor((window.innerWidth - photoWidth) / 2)+'px';
 				_this.elements.overlayPhoto.style.backgroundImage = element.style.backgroundImage;
 
+				_this._show();
+
 			});
 		});
 
+	},
+
+	close: function() {
+		this._hide();
 	}
 
 }
