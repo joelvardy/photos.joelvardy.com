@@ -34,7 +34,6 @@
 		<div class="overlay"></div>
 		<div class="overlay-photo"></div>
 
-		<script src="/assets/js/utilities.js"></script>
 		<script src="/assets/js/main.js"></script>
 
 	</body>

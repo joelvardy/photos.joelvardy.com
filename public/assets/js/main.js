@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				offset--;
 			}
 
-			if (photoElement.hasClass('wide')) {
+			if (photoElement.classList.contains('wide')) {
 
 				// If a wide photos will fit allow it
 				if (currentColumn < columns) {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					resized = true;
 				}
 
-			} else if (photoElement.hasClass('tall')) {
+			} else if (photoElement.classList.contains('tall')) {
 
 				// If photo is on the first column make it tall
 				if (currentColumn == 1) {
