@@ -39,15 +39,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			var resized = false;
 
-			if (offset > 0) {
-				offset--;
-			}
 			if (currentColumn > columns) {
 				currentColumn = 1;
 				if (offset > 0) {
 					currentColumn = 2;
 				}
 			}
+			if (offset > 0) {
+				offset--;
+			}
+
+			console.log(photoElement);
+			console.log('Column, '+currentColumn);
+			console.log('Offset, '+offset);
 
 			if (photoElement.hasClass('wide')) {
 
