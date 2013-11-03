@@ -20,7 +20,7 @@ div.grid {
 		width: 62.5vw;
 	}
 	div.grid div.photo.tall {
-		height: 62.4vw;
+		height: 62.4vw; // Deliberately incorrect to prevent rounding issue
 		width: 30vw;
 	}
 
