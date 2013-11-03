@@ -87,31 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	window.onresize();
 
-	// Set dimensions for each photo
-	[].forEach.call(document.querySelectorAll('div.grid div.photo'), function(photoElement) {
-		photoElement.addEventListener('click', function() {
-
-			var spacing = 20;
-
-			var overlayPhoto = document.querySelector('div.overlay-photo'),
-				windowAspect = (window.innerWidth - (spacing * 2)) / (window.innerHeight - (spacing * 2)),
-				photoAspect = parseFloat(photoElement.dataset.aspectRatio);
-
-			if (windowAspect > photoAspect) {
-				var photoHeight = (window.innerHeight - (spacing * 2)),
-					photoWidth = Math.floor(photoHeight * photoAspect);
-			} else {
-				var photoWidth = (window.innerWidth - (spacing * 2)),
-					photoHeight = Math.floor(photoWidth / photoAspect);
-			}
-
-			overlayPhoto.style.height = photoHeight+'px';
-			overlayPhoto.style.width = photoWidth+'px';
-			overlayPhoto.style.top = Math.floor((window.innerHeight - photoHeight) / 2)+'px';
-			overlayPhoto.style.left = Math.floor((window.innerWidth - photoWidth) / 2)+'px';
-			overlayPhoto.style.backgroundImage = photoElement.style.backgroundImage;
-
-		});
-	});
+	// Initialise lightbox
+	var photos = document.querySelectorAll('div.grid div.photo');
+	new Lightbox(photos, 20);
 
 });

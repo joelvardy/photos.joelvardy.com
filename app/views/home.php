@@ -31,9 +31,7 @@
 
 		</div>
 
-		<div class="overlay"></div>
-		<div class="overlay-photo"></div>
-
+		<script src="/assets/js/lightbox.js"></script>
 		<script src="/assets/js/main.js"></script>
 
 	</body>
