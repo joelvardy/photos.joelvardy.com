@@ -100,6 +100,16 @@ document.addEventListener('DOMContentLoaded', function() {
 				lightbox.close();
 				break;
 
+			// Show previous photo
+			case 37:
+				lightbox.previous();
+				break;
+
+			// Show next photo
+			case 39:
+				lightbox.next();
+				break;
+
 		}
 	}
 
