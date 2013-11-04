@@ -1,4 +1,4 @@
-# [photos.joelvardy.com][photos]
+# [Photos][photos]
 
 I like taking photos, most of the time I upload photos to Facebook; however I dislike the image compression Facebook use for photos. So I decided to build a basic gallery for some of my better photos.
 
