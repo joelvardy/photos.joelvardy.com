@@ -143,18 +143,20 @@ Lightbox.prototype = {
 
 	open: function(hash) {
 
-		var _this = this;
+		var _this = this,
+			foundPhoto = false;
 
 		Array.prototype.forEach.call(this.settings.elements, function(element, i) {
 			if (element.dataset.hash == hash) {
 
+				foundPhoto = true;
 				_this.currentIndex = i;
 				_this._updatePhoto(element);
 				_this._show();
 				return;
 
 			}
-			if (i == (_this.settings.elements.length - 1)) {
+			if ( ! foundPhoto && (i == (_this.settings.elements.length - 1))) {
 				window.photos.clearHash();
 			}
 		});
