@@ -39,6 +39,7 @@ Lightbox.prototype = {
 		// Close lightbox on click
 		this.elements.overlay.addEventListener('click', function() {
 			_this._hide();
+			window.analyticsEvent('Lightbox: close', 'Clicked overlay');
 		});
 
 		// Add overlay photo
@@ -51,6 +52,7 @@ Lightbox.prototype = {
 		// Close lightbox on click
 		this.elements.overlayPhoto.addEventListener('click', function() {
 			_this._hide();
+			window.analyticsEvent('Lightbox: close', 'Clicked photo');
 		});
 
 	},
@@ -117,6 +119,8 @@ Lightbox.prototype = {
 				_this._updatePhoto(element);
 
 				_this._show();
+
+				window.analyticsEvent('Lightbox: open', 'Clicked photo');
 
 			});
 		});

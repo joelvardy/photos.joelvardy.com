@@ -1,3 +1,8 @@
+// Analytics helper
+window.analyticsEvent = function(action, label) {
+	_gaq.push(['_trackEvent', 'userActions', action, label, null, true]);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
 	window.onresize = function() {
@@ -98,16 +103,19 @@ document.addEventListener('DOMContentLoaded', function() {
 			// Close lightbox on escape
 			case 27:
 				lightbox.close();
+				window.analyticsEvent('Lightbox: close', 'Escape key');
 				break;
 
 			// Show previous photo
 			case 37:
 				lightbox.previous();
+				window.analyticsEvent('Lightbox: previous photo', 'Left key');
 				break;
 
 			// Show next photo
 			case 39:
 				lightbox.next();
+				window.analyticsEvent('Lightbox: next photo', 'Right key');
 				break;
 
 		}
