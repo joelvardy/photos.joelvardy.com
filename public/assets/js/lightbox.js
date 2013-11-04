@@ -39,7 +39,7 @@ Lightbox.prototype = {
 		// Close lightbox on click
 		this.elements.overlay.addEventListener('click', function() {
 			_this._hide();
-			window.analyticsEvent('Lightbox: close', 'Clicked overlay');
+			window.photos.analyticsEvent('Lightbox: close', 'Clicked overlay');
 		});
 
 		// Add overlay photo
@@ -52,7 +52,7 @@ Lightbox.prototype = {
 		// Close lightbox on click
 		this.elements.overlayPhoto.addEventListener('click', function() {
 			_this._hide();
-			window.analyticsEvent('Lightbox: close', 'Clicked photo');
+			window.photos.analyticsEvent('Lightbox: close', 'Clicked photo');
 		});
 
 	},
@@ -74,6 +74,9 @@ Lightbox.prototype = {
 		this.elements.overlay.style.display = 'none';
 
 		this.isOpen = false;
+
+		// Remove hash
+		window.photos.clearHash();
 
 	},
 
@@ -98,6 +101,9 @@ Lightbox.prototype = {
 		this.elements.overlayPhoto.style.left = Math.floor((window.innerWidth - photoWidth) / 2)+'px';
 		this.elements.overlayPhoto.style.backgroundImage = element.style.backgroundImage;
 
+		// Update hash
+		window.photos.setHash(element.dataset.hash);
+
 		// Load large image
 		var image = new Image();
 		image.onload = function() {
@@ -115,14 +121,28 @@ Lightbox.prototype = {
 			element.addEventListener('click', function() {
 
 				_this.currentIndex = i;
-
 				_this._updatePhoto(element);
-
 				_this._show();
 
-				window.analyticsEvent('Lightbox: open', 'Clicked photo');
+				window.photos.analyticsEvent('Lightbox: open', 'Clicked photo');
 
 			});
+		});
+
+	},
+
+	open: function(hash) {
+
+		var _this = this;
+
+		Array.prototype.forEach.call(this.settings.elements, function(element, i) {
+			if (element.dataset.hash == hash) {
+
+				_this.currentIndex = i;
+				_this._updatePhoto(element);
+				_this._show();
+
+			}
 		});
 
 	},

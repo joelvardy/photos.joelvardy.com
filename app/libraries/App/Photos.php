@@ -145,7 +145,6 @@ class Photos {
 			// Clean up data
 			if ($status) {
 				unset($photo->filename);
-				unset($photo->hash);
 				unset($photo->largest_dimension);
 				$photos[] = $photo;
 			}

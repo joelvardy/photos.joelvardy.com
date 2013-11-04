@@ -1,6 +1,28 @@
-// Analytics helper
-window.analyticsEvent = function(action, label) {
-	ga('send', 'event', 'userActions', action, label);
+window.photos = {
+
+	// Analytics helper
+	analyticsEvent: function(action, label) {
+		ga('send', 'event', 'userActions', action, label);
+	},
+
+	// Clear hash helper
+	clearHash: function() {
+		window.location.hash = '';
+		if (typeof window.history.replaceState == 'function') {
+			history.replaceState({}, '', window.location.href.slice(0, -1));
+		}
+	},
+
+	// Get hash helper
+	getHash: function() {
+		return window.location.hash.substring(3);
+	},
+
+	// Set hash helper
+	setHash: function(hash) {
+		history.pushState({}, 'Photos', '#!/'+hash);
+	}
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -103,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		var divElement = document.createElement('div');
 		divElement.classList.add('photo');
 		divElement.classList.add(imgElement.classList.toString());
+		divElement.dataset.hash = imgElement.dataset.hash;
 		divElement.dataset.aspectRatio = imgElement.dataset.aspectRatio;
 		divElement.dataset.large = imgElement.dataset.large;
 		divElement.style.backgroundImage = 'url('+imgElement.getAttribute('src')+')';
@@ -127,22 +150,28 @@ document.addEventListener('DOMContentLoaded', function() {
 			// Close lightbox on escape
 			case 27:
 				lightbox.close();
-				window.analyticsEvent('Lightbox: close', 'Escape key');
+				window.photos.analyticsEvent('Lightbox: close', 'Escape key');
 				break;
 
 			// Show previous photo
 			case 37:
 				lightbox.previous();
-				window.analyticsEvent('Lightbox: previous photo', 'Left key');
+				window.photos.analyticsEvent('Lightbox: previous photo', 'Left key');
 				break;
 
 			// Show next photo
 			case 39:
 				lightbox.next();
-				window.analyticsEvent('Lightbox: next photo', 'Right key');
+				window.photos.analyticsEvent('Lightbox: next photo', 'Right key');
 				break;
 
 		}
+	}
+
+	// If there is a hash
+	if (window.photos.getHash() != '') {
+		lightbox.open(window.photos.getHash());
+		window.photos.analyticsEvent('Lightbox: open', 'Direct link');
 	}
 
 });
