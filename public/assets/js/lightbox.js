@@ -141,7 +141,11 @@ Lightbox.prototype = {
 				_this.currentIndex = i;
 				_this._updatePhoto(element);
 				_this._show();
+				return;
 
+			}
+			if (i == (_this.settings.elements.length - 1)) {
+				window.photos.clearHash();
 			}
 		});
 
