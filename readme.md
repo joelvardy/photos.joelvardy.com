@@ -36,6 +36,10 @@ I know storing large binary data in git is not the most appropriate solution, it
 
 I may implement (or write my own - [actually I did help write one][2kdrive]) a library to detect swipe gestures to move between photos in the lightbox.
 
+### Bookmarking
+
+I may add the ability to link to a specific photo.
+
 [Joel Vardy][joelvardy]
 
   [photos]: http://photos.joelvardy.com/
