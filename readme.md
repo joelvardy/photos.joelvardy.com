@@ -46,4 +46,4 @@ I may add the ability to link to a specific photo.
 
   [photos]: http://photos.joelvardy.com/
   [joelvardy]: https://joelvardy.com/
-  [2kdrive]: http://test.ing/projects#2k-drive
+  [2kdrive]: https://joelvardy.com/projects#2k-drive
