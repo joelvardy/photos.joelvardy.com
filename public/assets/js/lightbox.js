@@ -111,7 +111,7 @@ Lightbox.prototype = {
 
 		var _this = this;
 
-		[].forEach.call(this.settings.elements, function(element, i) {
+		Array.prototype.forEach.call(this.settings.elements, function(element, i) {
 			element.addEventListener('click', function() {
 
 				_this.currentIndex = i;
