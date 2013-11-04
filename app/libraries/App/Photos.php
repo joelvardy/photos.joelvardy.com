@@ -3,6 +3,7 @@
 namespace App;
 
 use Joelvardy\Config;
+use Joelvardy\Cache;
 
 /**
  * Photos library
@@ -114,6 +115,10 @@ class Photos {
 	 */
 	public function read() {
 
+		// Read from cache
+		$photos = Cache::fetch('photos');
+		if ( ! empty($photos)) return $photos;
+
 		$photos = array();
 
 		// Read data from file
@@ -147,7 +152,12 @@ class Photos {
 
 		}
 
-		return array_reverse($photos);
+		$photos = array_reverse($photos);
+
+		// Save in cache for 60 minutes
+		Cache::store('photos', $photos, (60 * 60));
+
+		return $photos;
 
 	}
 

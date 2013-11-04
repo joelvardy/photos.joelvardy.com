@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0eed17649c1b05eded22ff90cf0b4f78",
+    "hash": "593f4cca7826d4dfc73a6d01b10a5d54",
     "packages": [
         {
             "name": "illuminate/support",
@@ -105,6 +105,51 @@
                 "watermark"
             ],
             "time": "2013-09-25 15:05:36"
+        },
+        {
+            "name": "joelvardy/cache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joelvardy/cache.git",
+                "reference": "673635aa1f96e30acad907a94278a9e17afc8b9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joelvardy/cache/zipball/673635aa1f96e30acad907a94278a9e17afc8b9b",
+                "reference": "673635aa1f96e30acad907a94278a9e17afc8b9b",
+                "shasum": ""
+            },
+            "require": {
+                "joelvardy/config": "dev-master",
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Joelvardy": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joel Vardy",
+                    "email": "info@joelvardy.com",
+                    "homepage": "https://joelvardy.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Database connection library.",
+            "homepage": "https://github.com/joelvardy/cache",
+            "keywords": [
+                "cache",
+                "caching",
+                "memcached"
+            ],
+            "time": "2013-10-02 22:11:49"
         },
         {
             "name": "joelvardy/config",
@@ -301,6 +346,7 @@
         "joelvardy/config": 20,
         "joelvardy/routes": 20,
         "joelvardy/template": 20,
+        "joelvardy/cache": 20,
         "intervention/image": 20,
         "kevinlebrun/colors.php": 20
     },

@@ -3,6 +3,7 @@
 		"joelvardy/config": "dev-master",
 		"joelvardy/routes": "dev-master",
 		"joelvardy/template": "dev-master",
+		"joelvardy/cache": "dev-master",
 		"intervention/image": "dev-master",
 		"kevinlebrun/colors.php": "dev-master"
 	},

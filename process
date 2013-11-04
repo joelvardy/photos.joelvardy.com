@@ -4,6 +4,7 @@
 // Initialise the application
 require('init.php');
 
+use Joelvardy\Cache;
 use App\Console;
 use App\Photos;
 use Intervention\Image\Image;
@@ -66,5 +67,7 @@ foreach ($data as $photo) {
 	}
 
 }
+
+Cache::delete('photos');
 
 Console::summary($issues > 0 ? 'Warning, '.$issues.' issue(s) raised' : 'Processing photos was successful');
