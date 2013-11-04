@@ -90,7 +90,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 
 	}
+
+	// Resize everything on page load
 	window.onresize();
+	window.onload = function() {
+		window.onresize();
+	}
 
 	// Initialise lightbox
 	var photos = document.querySelectorAll('div.grid div.photo');
