@@ -1,6 +1,6 @@
 // Analytics helper
 window.analyticsEvent = function(action, label) {
-	_gaq.push(['_trackEvent', 'userActions', action, label, null, true]);
+	ga('send', 'event', 'userActions', action, label);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
