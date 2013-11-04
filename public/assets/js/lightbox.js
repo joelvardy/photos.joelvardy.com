@@ -27,7 +27,7 @@ Lightbox.prototype = {
 
 		var _this = this;
 
-		this.isOpen = false;
+		this._isOpen = false;
 
 		// Add overlay class
 		if ( ! document.querySelector(this.settings.overlayClass)) {
@@ -63,7 +63,7 @@ Lightbox.prototype = {
 		this.elements.overlayPhoto.style.display = 'block';
 		this.elements.body.style.overflow = 'hidden';
 
-		this.isOpen = true;
+		this._isOpen = true;
 
 	},
 
@@ -73,7 +73,7 @@ Lightbox.prototype = {
 		this.elements.overlayPhoto.style.display = 'none';
 		this.elements.overlay.style.display = 'none';
 
-		this.isOpen = false;
+		this._isOpen = false;
 
 		// Remove hash
 		window.photos.clearHash();
@@ -131,6 +131,10 @@ Lightbox.prototype = {
 
 	},
 
+	isOpen: function() {
+		return this._isOpen;
+	},
+
 	open: function(hash) {
 
 		var _this = this;
@@ -157,7 +161,7 @@ Lightbox.prototype = {
 
 	previous: function() {
 
-		if ( ! this.isOpen) return;
+		if ( ! this._isOpen) return;
 
 		if (typeof this.settings.elements[(this.currentIndex - 1)] == 'undefined') {
 			this.currentIndex = (this.settings.elements.length - 1);
@@ -170,7 +174,7 @@ Lightbox.prototype = {
 
 	next: function() {
 
-		if ( ! this.isOpen) return;
+		if ( ! this._isOpen) return;
 
 		if (typeof this.settings.elements[(this.currentIndex + 1)] == 'undefined') {
 			this.currentIndex = -1;

@@ -168,6 +168,21 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
+	// Bind swiping gestures
+	new Swipe(function() {
+		if (lightbox.isOpen()) {
+			console.log('Next photo');
+			lightbox.next();
+			window.photos.analyticsEvent('Lightbox: next photo', 'Swipe');
+		}
+	}, function() {
+		if (lightbox.isOpen()) {
+			console.log('Previous photo');
+			lightbox.previous();
+			window.photos.analyticsEvent('Lightbox: previous photo', 'Swipe');
+		}
+	});
+
 	// If there is a hash
 	if (window.photos.getHash() != '') {
 		lightbox.open(window.photos.getHash());

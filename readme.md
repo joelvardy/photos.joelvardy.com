@@ -34,12 +34,7 @@ php process
 
 I know storing large binary data in git is not the most appropriate solution, it would be quite easy to have the processing script download images from a Dropbox folder, but for now this serves it's purpose.
 
-### Swipe
-
-I may implement (or write my own - [actually I did help write one][2kdrive]) a library to detect swipe gestures to move between photos in the lightbox.
-
 [Joel Vardy][joelvardy]
 
   [photos]: http://photos.joelvardy.com/
   [joelvardy]: https://joelvardy.com/
-  [2kdrive]: https://joelvardy.com/projects#2k-drive
