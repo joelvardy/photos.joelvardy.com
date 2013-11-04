@@ -1,5 +1,4 @@
 @import "compass/css3";
-@import "_variables";
 
 div.grid {
 	overflow: hidden;
@@ -12,7 +11,7 @@ div.grid {
 	}
 
 div.overlay {
-	background: $backgroundColour;
+	background: #f0f0f0;
 	bottom: 0;
 	display: none;
 	left: 0;
