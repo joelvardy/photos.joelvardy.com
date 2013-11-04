@@ -26,6 +26,8 @@ Before the photos are displayed, you must run the processing script.
 php process
 ```
 
+**Note::** The processed directory (specified in the photos config file) must be writable by the php script.
+
 ## Notes
 
 ### Binary Data and Git
