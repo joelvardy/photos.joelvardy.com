@@ -99,17 +99,23 @@ Lightbox.prototype = {
 		this.elements.overlayPhoto.style.width = photoWidth+'px';
 		this.elements.overlayPhoto.style.top = Math.floor((window.innerHeight - photoHeight) / 2)+'px';
 		this.elements.overlayPhoto.style.left = Math.floor((window.innerWidth - photoWidth) / 2)+'px';
-		this.elements.overlayPhoto.style.backgroundImage = element.style.backgroundImage;
 
 		// Update hash
 		window.photos.setHash(element.dataset.hash);
 
-		// Load large image
-		var image = new Image();
-		image.onload = function() {
-			_this.elements.overlayPhoto.style.backgroundImage = 'url('+element.dataset.large+')';
+		// Is images cached
+		var smallImage = document.createElement('img');
+		smallImage.src = element.dataset.small;
+		if (smallImage.complete || (smallImage.width+smallImage.height) > 0) {
+			this.elements.overlayPhoto.style.backgroundImage = element.style.backgroundImage;
+			var image = new Image();
+			image.onload = function() {
+				_this.elements.overlayPhoto.style.backgroundImage = 'url('+element.dataset.large+')';
+			}
+			image.src = element.dataset.large;
+		} else {
+			this.elements.overlayPhoto.style.backgroundImage = 'url('+element.dataset.large+')';
 		}
-		image.src = element.dataset.large;
 
 	},
 

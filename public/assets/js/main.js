@@ -128,7 +128,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		divElement.dataset.hash = imgElement.dataset.hash;
 		divElement.dataset.aspectRatio = imgElement.dataset.aspectRatio;
 		divElement.dataset.large = imgElement.dataset.large;
-		divElement.style.backgroundImage = 'url('+imgElement.getAttribute('src')+')';
+		divElement.dataset.small = imgElement.getAttribute('src');
+		divElement.style.backgroundImage = 'url('+divElement.dataset.small+')';
 		gridElement.replaceChild(divElement, imgElement);
 
 	});
@@ -172,13 +173,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	if ('ontouchstart' in document.documentElement) {
 		new Swipe(function() {
 			if (lightbox.isOpen()) {
-				console.log('Next photo');
 				lightbox.next();
 				window.photos.analyticsEvent('Lightbox: next photo', 'Swipe');
 			}
 		}, function() {
 			if (lightbox.isOpen()) {
-				console.log('Previous photo');
 				lightbox.previous();
 				window.photos.analyticsEvent('Lightbox: previous photo', 'Swipe');
 			}
