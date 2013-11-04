@@ -5,6 +5,9 @@ window.analyticsEvent = function(action, label) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+	// Define foreach
+	var forEach = Array.prototype.forEach;
+
 	window.onresize = function() {
 
 		var grid = document.querySelector('div.grid'),
@@ -17,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		grid.style.paddingLeft = gridSpacing+'px';
 
 		// Set margin for each photo
-		[].forEach.call(grid.querySelectorAll('div.photo'), function(photoElement) {
+		forEach.call(grid.querySelectorAll('div.photo'), function(photoElement) {
 			photoElement.style.marginRight = gridSpacing+'px';
 			photoElement.style.marginBottom = gridSpacing+'px';
 		});
@@ -40,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			offset = 0;
 
 		// Set dimensions for each photo
-		[].forEach.call(grid.querySelectorAll('div.photo'), function(photoElement) {
+		forEach.call(grid.querySelectorAll('div.photo'), function(photoElement) {
 
 			var resized = false;
 
@@ -91,6 +94,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	}
 
+	// Define grid
+	var gridElement = document.querySelector('div.grid');
+
+	// Convert img tags to some non-semantic divs
+	forEach.call(gridElement.querySelectorAll('img'), function(imgElement){
+
+		var divElement = document.createElement('div');
+		divElement.classList.add('photo');
+		divElement.classList.add(imgElement.classList.toString());
+		divElement.dataset.aspectRatio = imgElement.dataset.aspectRatio;
+		divElement.dataset.large = imgElement.dataset.large;
+		divElement.style.backgroundImage = 'url('+imgElement.getAttribute('src')+')';
+		gridElement.replaceChild(divElement, imgElement);
+
+	});
+
 	// Resize everything on page load
 	window.onresize();
 	window.onload = function() {
@@ -98,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	// Initialise lightbox
-	var photos = document.querySelectorAll('div.grid div.photo');
+	var photos = gridElement.querySelectorAll('div.photo');
 	var lightbox = new Lightbox(photos, 20);
 
 	// Add events to key presses

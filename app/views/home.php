@@ -25,7 +25,7 @@
 						$orientation = 'square';
 					}
 
-					echo '<div class="photo '.$orientation.'" data-aspect-ratio="'.$photo->aspect_ratio.'" data-large="'.$photo->sizes['large'].'" style="background-image:url('.$photo->sizes['small'].');"></div>';
+					echo '<img class="'.$orientation.'" data-aspect-ratio="'.$photo->aspect_ratio.'" alt="'.$photo->title.'" data-large="'.$photo->sizes['large'].'" src="'.$photo->sizes['small'].'" />';
 
 				}
 
