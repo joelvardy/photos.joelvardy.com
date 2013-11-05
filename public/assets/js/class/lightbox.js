@@ -4,13 +4,13 @@ function Lightbox() {
 
 Lightbox.prototype = {
 
-	init: function(elements, spacing) {
+	init: function(spacing) {
 
 		// Define settings
 		this.settings = {
 			overlayClass: 'overlay',
 			overlayPhotoClass: 'overlay-photo',
-			elements: elements,
+			elements: window.photos.grid.gridElement().querySelectorAll('div.photo'),
 			spacing: spacing
 		}
 
@@ -22,8 +22,11 @@ Lightbox.prototype = {
 		// Setup elements
 		this._setupElements();
 
-		// Register events
+		// Register click events
 		this._registerClickListners();
+
+		// Register swipe events
+		this._registerSwipeListners();
 
 	},
 
@@ -159,6 +162,31 @@ Lightbox.prototype = {
 
 			});
 		});
+
+	},
+
+	_registerSwipeListners: function() {
+
+		var _this = this;
+
+		// Bind swiping gestures
+		if ('ontouchstart' in document.documentElement) {
+			window.photos.swipe.init(function() {
+
+				if ( ! _this.isOpen()) return;
+
+				_this.next();
+				window.photos.analytics.event('Lightbox: next photo', 'Swipe');
+
+			}, function() {
+
+				if ( ! _this.isOpen()) return;
+
+				_this.previous();
+				window.photos.analytics.event('Lightbox: previous photo', 'Swipe');
+
+			});
+		}
 
 	},
 

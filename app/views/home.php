@@ -43,6 +43,7 @@
 		<script src="/assets/js/class/lightbox.js"></script>
 		<script src="/assets/js/class/analytics.js"></script>
 		<script src="/assets/js/class/page.js"></script>
+		<script src="/assets/js/class/grid.js"></script>
 		<script src="/assets/js/app.js"></script>
 
 	</body>
