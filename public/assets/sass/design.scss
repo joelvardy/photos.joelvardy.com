@@ -23,5 +23,6 @@ div.overlay {
 div.overlay-photo {
 	background-position: center center;
 	@include background-size(cover);
+	cursor: pointer;
 	position: fixed;
 }
