@@ -114,7 +114,9 @@ Lightbox.prototype = {
 		this.elements.overlayPhoto.style.left = Math.floor((window.innerWidth - photoWidth) / 2)+'px';
 
 		// Update hash
-		window.photos.setHash(element.dataset.hash);
+		if (window.photos.getHash() != element.dataset.hash) {
+			window.photos.setHash(element.dataset.hash);
+		}
 
 		// Is images cached
 		var smallImage = document.createElement('img');
@@ -165,7 +167,9 @@ Lightbox.prototype = {
 				foundPhoto = true;
 				_this.currentIndex = i;
 				_this._updatePhoto(element);
-				_this._show();
+				if ( ! _this.isOpen()) {
+					_this._show();
+				}
 				return;
 
 			}
@@ -182,7 +186,7 @@ Lightbox.prototype = {
 
 	previous: function() {
 
-		if ( ! this._isOpen) return;
+		if ( ! this.isOpen()) return;
 
 		if (typeof this.settings.elements[(this.currentIndex - 1)] == 'undefined') {
 			this.currentIndex = this.settings.elements.length;
@@ -195,7 +199,7 @@ Lightbox.prototype = {
 
 	next: function() {
 
-		if ( ! this._isOpen) return;
+		if ( ! this.isOpen()) return;
 
 		if (typeof this.settings.elements[(this.currentIndex + 1)] == 'undefined') {
 			this.currentIndex = -1;

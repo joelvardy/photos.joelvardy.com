@@ -184,10 +184,26 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 
-	// If there is a hash
+	// If there is a hash to begin with
 	if (window.photos.getHash() != '') {
 		lightbox.open(window.photos.getHash());
+		console.log('Direct link');
 		window.photos.analyticsEvent('Lightbox: open', 'Direct link');
+	}
+
+	// If the hash changes
+	window.onhashchange = function() {
+
+		// Close lightbox if we don't want it
+		if (window.photos.getHash() == '' && lightbox.isOpen()) {
+			lightbox.close();
+			return;
+		}
+
+		// Change photo
+		lightbox.open(window.photos.getHash());
+		window.photos.analyticsEvent('Lightbox: change photo', 'Hash change');
+
 	}
 
 });
