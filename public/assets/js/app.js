@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	window.photos.grid.init();
 
 	// Resize the grid
+	window.photos.grid.resize();
 	window.onresize = function() {
 		window.photos.grid.resize();
 	}
