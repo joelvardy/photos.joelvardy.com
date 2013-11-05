@@ -49,10 +49,10 @@ Lightbox.prototype = {
 			this.elements.overlayPhoto = document.body.appendChild(overlayPhotoElement);
 		}
 
-		// Close lightbox on click
+		// Move to next photo
 		this.elements.overlayPhoto.addEventListener('click', function() {
-			_this._hide();
-			window.photos.analyticsEvent('Lightbox: close', 'Clicked photo');
+			_this.next();
+			window.photos.analyticsEvent('Lightbox: next photo', 'Clicked photo in lightbox');
 		});
 
 	},
