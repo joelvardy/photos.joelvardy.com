@@ -91,6 +91,9 @@ Lightbox.prototype = {
 		// Remove hash
 		window.photos.clearHash();
 
+		// Reset page title
+		window.photos.resetTitle();
+
 	},
 
 	_updatePhoto: function(element) {
@@ -117,6 +120,9 @@ Lightbox.prototype = {
 		if (window.photos.getHash() != element.dataset.hash) {
 			window.photos.setHash(element.dataset.hash);
 		}
+
+		// Update page title
+		window.photos.setTitle(element.getAttribute('title'));
 
 		// Is images cached
 		var smallImage = document.createElement('img');

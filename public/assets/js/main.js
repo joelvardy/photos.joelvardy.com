@@ -21,6 +21,19 @@ window.photos = {
 	// Set hash helper
 	setHash: function(hash) {
 		history.pushState({}, 'Photos', '#!/'+hash);
+	},
+
+	// Reset title helper
+	resetTitle: function() {
+		document.title = window.photos._pageTitle;
+	},
+
+	// Set title helper
+	setTitle: function(title) {
+		if ( ! window.photos._pageTitle) {
+			window.photos._pageTitle = document.title;
+		}
+		document.title = title;
 	}
 
 }
@@ -128,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		divElement.dataset.hash = imgElement.dataset.hash;
 		divElement.dataset.aspectRatio = imgElement.dataset.aspectRatio;
 		divElement.dataset.large = imgElement.dataset.large;
+		divElement.setAttribute('title', imgElement.getAttribute('alt'));
 		divElement.dataset.small = imgElement.getAttribute('src');
 		divElement.style.backgroundImage = 'url('+divElement.dataset.small+')';
 		gridElement.replaceChild(divElement, imgElement);
