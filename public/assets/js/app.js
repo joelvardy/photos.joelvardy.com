@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		// Close lightbox if we don't want it
 		if (window.photos.page.getHash() == '' && window.photos.lightbox.isOpen()) {
 			window.photos.lightbox.close();
+			window.photos.analytics.event('Lightbox: close', 'Hash change');
 			return;
 		}
 
