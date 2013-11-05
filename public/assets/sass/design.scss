@@ -11,6 +11,15 @@ div.grid {
 		float: left;
 	}
 
+p.information {
+	margin-bottom: 20px;
+	text-align: center;
+}
+	p.information a {
+		color: #ff8800;
+		text-decoration: none;
+	}
+
 div.overlay {
 	background: #111;
 	bottom: 0;
