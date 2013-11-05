@@ -4,8 +4,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>Photos Taken By Joel Vardy</title>
 		<meta name="description" content="I've taken thousands of photographs, this is a collection of my favourite ones.'" />
-		<link rel="stylesheet" href="/assets/css/reset.css" />
-		<link rel="stylesheet" href="/assets/css/design.css" />
+		<link async rel="stylesheet" href="/assets/css/reset.css" />
+		<link async rel="stylesheet" href="/assets/css/design.css" />
 		<link rel="author" href="https://plus.google.com/102110732747129499789" />
 	</head>
 	<body>
@@ -39,12 +39,12 @@
 			ga('send', 'pageview');
 		</script>
 
-		<script src="/assets/js/class/swipe.js"></script>
-		<script src="/assets/js/class/lightbox.js"></script>
-		<script src="/assets/js/class/analytics.js"></script>
-		<script src="/assets/js/class/page.js"></script>
-		<script src="/assets/js/class/grid.js"></script>
-		<script src="/assets/js/app.js"></script>
+		<script defer src="/assets/js/class/swipe.js"></script>
+		<script defer src="/assets/js/class/lightbox.js"></script>
+		<script defer src="/assets/js/class/analytics.js"></script>
+		<script defer src="/assets/js/class/page.js"></script>
+		<script defer src="/assets/js/class/grid.js"></script>
+		<script defer src="/assets/js/app.js"></script>
 
 	</body>
 </html>
