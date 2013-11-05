@@ -185,7 +185,7 @@ Lightbox.prototype = {
 		if ( ! this._isOpen) return;
 
 		if (typeof this.settings.elements[(this.currentIndex - 1)] == 'undefined') {
-			this.currentIndex = (this.settings.elements.length - 1);
+			this.currentIndex = this.settings.elements.length;
 		}
 		var previousElement = this.settings.elements[(this.currentIndex - 1)];
 		this._updatePhoto(previousElement);
