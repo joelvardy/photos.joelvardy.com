@@ -1,29 +1,33 @@
-function Lightbox(elements, spacing) {
-
-	// Define settings
-	this.settings = {
-		overlayClass: 'overlay',
-		overlayPhotoClass: 'overlay-photo',
-		elements: elements,
-		spacing: spacing
-	}
-
-	// Define elements
-	this.elements = {
-		body: document.querySelector('body')
-	}
-
-	// Setup elements
-	this._setup();
-
-	// Register events
-	this._registerClickListners();
-
+function Lightbox() {
+	//
 }
 
 Lightbox.prototype = {
 
-	_setup: function() {
+	init: function(elements, spacing) {
+
+		// Define settings
+		this.settings = {
+			overlayClass: 'overlay',
+			overlayPhotoClass: 'overlay-photo',
+			elements: elements,
+			spacing: spacing
+		}
+
+		// Define elements
+		this.elements = {
+			body: document.querySelector('body')
+		}
+
+		// Setup elements
+		this._setupElements();
+
+		// Register events
+		this._registerClickListners();
+
+	},
+
+	_setupElements: function() {
 
 		var _this = this;
 
@@ -40,7 +44,7 @@ Lightbox.prototype = {
 		// Close lightbox on click
 		this.elements.overlay.addEventListener('click', function() {
 			_this._hide();
-			window.photos.analyticsEvent('Lightbox: close', 'Clicked overlay');
+			window.photos.analytics.event('Lightbox: close', 'Clicked overlay');
 		});
 
 		// Add overlay photo
@@ -53,7 +57,7 @@ Lightbox.prototype = {
 		// Move to next photo
 		this.elements.overlayPhoto.addEventListener('click', function() {
 			_this.next();
-			window.photos.analyticsEvent('Lightbox: next photo', 'Clicked photo in lightbox');
+			window.photos.analytics.event('Lightbox: next photo', 'Clicked photo in lightbox');
 		});
 
 	},
@@ -89,10 +93,10 @@ Lightbox.prototype = {
 		}, 10);
 
 		// Remove hash
-		window.photos.clearHash();
+		window.photos.page.clearHash();
 
 		// Reset page title
-		window.photos.resetTitle();
+		window.photos.page.resetTitle();
 
 	},
 
@@ -117,12 +121,12 @@ Lightbox.prototype = {
 		this.elements.overlayPhoto.style.left = Math.floor((window.innerWidth - photoWidth) / 2)+'px';
 
 		// Update hash
-		if (window.photos.getHash() != element.dataset.hash) {
-			window.photos.setHash(element.dataset.hash);
+		if (window.photos.page.getHash() != element.dataset.hash) {
+			window.photos.page.setHash(element.dataset.hash);
 		}
 
 		// Update page title
-		window.photos.setTitle(element.getAttribute('title'));
+		window.photos.page.setTitle(element.getAttribute('title'));
 
 		// Is images cached
 		var smallImage = document.createElement('img');
@@ -151,7 +155,7 @@ Lightbox.prototype = {
 				_this._updatePhoto(element);
 				_this._show();
 
-				window.photos.analyticsEvent('Lightbox: open', 'Clicked photo');
+				window.photos.analytics.event('Lightbox: open', 'Clicked photo');
 
 			});
 		});
@@ -180,7 +184,7 @@ Lightbox.prototype = {
 
 			}
 			if ( ! foundPhoto && (i == (_this.settings.elements.length - 1))) {
-				window.photos.clearHash();
+				window.photos.page.clearHash();
 			}
 		});
 

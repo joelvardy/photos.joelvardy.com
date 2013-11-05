@@ -39,9 +39,11 @@
 			ga('send', 'pageview');
 		</script>
 
-		<script src="/assets/js/swipe.js"></script>
-		<script src="/assets/js/lightbox.js"></script>
-		<script src="/assets/js/main.js"></script>
+		<script src="/assets/js/class/swipe.js"></script>
+		<script src="/assets/js/class/lightbox.js"></script>
+		<script src="/assets/js/class/analytics.js"></script>
+		<script src="/assets/js/class/page.js"></script>
+		<script src="/assets/js/app.js"></script>
 
 	</body>
 </html>

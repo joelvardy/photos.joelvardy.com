@@ -1,40 +1,9 @@
 window.photos = {
 
-	// Analytics helper
-	analyticsEvent: function(action, label) {
-		ga('send', 'event', 'userActions', action, label);
-	},
-
-	// Clear hash helper
-	clearHash: function() {
-		window.location.hash = '';
-		if (typeof window.history.replaceState == 'function') {
-			history.replaceState({}, '', window.location.href.slice(0, -1));
-		}
-	},
-
-	// Get hash helper
-	getHash: function() {
-		return window.location.hash.substring(3);
-	},
-
-	// Set hash helper
-	setHash: function(hash) {
-		history.pushState({}, 'Photos', '#!/'+hash);
-	},
-
-	// Reset title helper
-	resetTitle: function() {
-		document.title = window.photos._pageTitle;
-	},
-
-	// Set title helper
-	setTitle: function(title) {
-		if ( ! window.photos._pageTitle) {
-			window.photos._pageTitle = document.title;
-		}
-		document.title = title;
-	}
+	swipe: new Swipe(),
+	lightbox: new Lightbox(),
+	analytics: new Analytics(),
+	page: new Page()
 
 }
 
@@ -156,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Initialise lightbox
 	var photos = gridElement.querySelectorAll('div.photo');
-	var lightbox = new Lightbox(photos, 20);
+	window.photos.lightbox.init(photos, 20);
 
 	// Add events to key presses
 	document.onkeydown = function(event) {
@@ -164,20 +133,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			// Close lightbox on escape
 			case 27:
-				lightbox.close();
-				window.photos.analyticsEvent('Lightbox: close', 'Escape key');
+				window.photos.lightbox.close();
+				window.photos.analytics.event('Lightbox: close', 'Escape key');
 				break;
 
 			// Show previous photo
 			case 37:
-				lightbox.previous();
-				window.photos.analyticsEvent('Lightbox: previous photo', 'Left key');
+				window.photos.lightbox.previous();
+				window.photos.analytics.event('Lightbox: previous photo', 'Left key');
 				break;
 
 			// Show next photo
 			case 39:
-				lightbox.next();
-				window.photos.analyticsEvent('Lightbox: next photo', 'Right key');
+				window.photos.lightbox.next();
+				window.photos.analytics.event('Lightbox: next photo', 'Right key');
 				break;
 
 		}
@@ -185,38 +154,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Bind swiping gestures
 	if ('ontouchstart' in document.documentElement) {
-		new Swipe(function() {
-			if (lightbox.isOpen()) {
-				lightbox.next();
-				window.photos.analyticsEvent('Lightbox: next photo', 'Swipe');
+		window.photos.swipe.init(function() {
+			if (window.photos.lightbox.isOpen()) {
+				window.photos.lightbox.next();
+				window.photos.analytics.event('Lightbox: next photo', 'Swipe');
 			}
 		}, function() {
-			if (lightbox.isOpen()) {
-				lightbox.previous();
-				window.photos.analyticsEvent('Lightbox: previous photo', 'Swipe');
+			if (window.photos.lightbox.isOpen()) {
+				window.photos.lightbox.previous();
+				window.photos.analytics.event('Lightbox: previous photo', 'Swipe');
 			}
 		});
 	}
 
 	// If there is a hash to begin with
-	if (window.photos.getHash() != '') {
-		lightbox.open(window.photos.getHash());
+	if (window.photos.page.getHash() != '') {
+		window.photos.lightbox.open(window.photos.page.getHash());
 		console.log('Direct link');
-		window.photos.analyticsEvent('Lightbox: open', 'Direct link');
+		window.photos.analytics.event('Lightbox: open', 'Direct link');
 	}
 
 	// If the hash changes
 	window.onhashchange = function() {
 
 		// Close lightbox if we don't want it
-		if (window.photos.getHash() == '' && lightbox.isOpen()) {
-			lightbox.close();
+		if (window.photos.page.getHash() == '' && window.photos.lightbox.isOpen()) {
+			window.photos.lightbox.close();
 			return;
 		}
 
 		// Change photo
-		lightbox.open(window.photos.getHash());
-		window.photos.analyticsEvent('Lightbox: change photo', 'Hash change');
+		window.photos.lightbox.open(window.photos.page.getHash());
+		window.photos.analytics.event('Lightbox: change photo', 'Hash change');
 
 	}
 
