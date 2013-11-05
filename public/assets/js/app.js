@@ -73,4 +73,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	}
 
+	// Track external links
+	document.querySelector('p.information a').addEventListener('click', function(event) {
+		switch (event.target.classList.toString()) {
+			case 'joelvardy':
+				window.photos.analytics.event('External link', 'Joel Vardy');
+				break;
+			case 'github':
+				window.photos.analytics.event('External link', 'GitHub repo');
+				break;
+		}
+	});
+
 });
