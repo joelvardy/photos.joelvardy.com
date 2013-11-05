@@ -28,6 +28,7 @@ Lightbox.prototype = {
 		var _this = this;
 
 		this._isOpen = false;
+		this._pagePosition = 0;
 
 		// Add overlay class
 		if ( ! document.querySelector(this.settings.overlayClass)) {
@@ -59,6 +60,8 @@ Lightbox.prototype = {
 
 	_show: function() {
 
+		this._pagePosition = window.pageYOffset;
+
 		this.elements.overlay.style.display = 'block';
 		this.elements.overlayPhoto.style.display = 'block';
 		this.elements.body.style.overflow = 'hidden';
@@ -69,11 +72,21 @@ Lightbox.prototype = {
 
 	_hide: function() {
 
-		this.elements.body.style.overflow = 'auto';
-		this.elements.overlayPhoto.style.display = 'none';
-		this.elements.overlay.style.display = 'none';
+		var _this = this;
 
-		this._isOpen = false;
+		this.elements.body.style.overflow = 'auto';
+
+		// Some weird shit happening (with window.scroll) has to be a few ms late
+		setTimeout(function() {
+
+			window.scroll(0, _this._pagePosition);
+
+			_this.elements.overlayPhoto.style.display = 'none';
+			_this.elements.overlay.style.display = 'none';
+
+			_this._isOpen = false;
+
+		}, 10);
 
 		// Remove hash
 		window.photos.clearHash();
