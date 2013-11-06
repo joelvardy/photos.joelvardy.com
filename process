@@ -30,7 +30,7 @@ foreach ($data as $photo) {
 	// Generate the filepath to the processed folder
 	$photo_folder = $photos->directory('processed').'/'.$photo->hash;
 
-	foreach ($photos->sizes() as $size => $max_dimension) {
+	foreach ($photos->sizes() as $size => $size_info) {
 
 		// If the processed folder does not exist, create it
 		if ( ! file_exists($photo_folder)) {
@@ -49,13 +49,13 @@ foreach ($data as $photo) {
 
 			// Resize
 			if ($photo->largest_dimension == 'height') {
-				$image->heighten($max_dimension);
+				$image->heighten($size_info->max_dimension);
 			} else if ($photo->largest_dimension == 'width') {
-				$image->widen($max_dimension);
+				$image->widen($size_info->max_dimension);
 			}
 
 			try {
-				$image->save($filepath, $photos->quality());
+				$image->save($filepath, $size_info->quality);
 				Console::output("\t<success>Saved processed image</success>");
 			} catch (Exception $e) {
 				Console::output("\t<error>Could not save processed image</error>");

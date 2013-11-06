@@ -66,18 +66,6 @@ class Photos {
 
 
 	/**
-	 * Return photo quality
-	 *
-	 * @return	integer
-	 */
-	public function quality() {
-
-		return (integer) $this->config->quality;
-
-	}
-
-
-	/**
 	 * Read data
 	 *
 	 * @return	array
@@ -134,7 +122,7 @@ class Photos {
 
 			// Check whether each size exists
 			$status = true;
-			foreach ($this->sizes() as $size => $max_dimension) {
+			foreach ($this->sizes() as $size => $size_info) {
 				if (file_exists($photo_folder.'/'.$size.'.jpg')) {
 					$photo->sizes[$size] = $this->config->processed_directory.'/'.$photo->hash.'/'.$size.'.jpg';
 				} else {

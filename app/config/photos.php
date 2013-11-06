@@ -4,8 +4,13 @@ return (object) array(
 	'original_directory' => PHOTOS_PATH,
 	'processed_directory' => '/assets/photos',
 	'sizes' => array(
-		'large' => 2000,
-		'small' => 500
-	),
-	'quality' => 65
+		'large' => (object) array(
+			'max_dimension' => 2000,
+			'quality' => 70
+		),
+		'small' => (object) array(
+			'max_dimension' => 500,
+			'quality' => 60
+		)
+	)
 );
