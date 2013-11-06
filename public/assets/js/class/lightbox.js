@@ -93,13 +93,13 @@ Lightbox.prototype = {
 
 			_this._isOpen = false;
 
+			// Remove hash
+			window.photos.page.clearHash();
+
+			// Reset page title
+			window.photos.page.resetTitle();
+
 		}, 10);
-
-		// Remove hash
-		window.photos.page.clearHash();
-
-		// Reset page title
-		window.photos.page.resetTitle();
 
 	},
 
