@@ -73,16 +73,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	}
 
-	// Track external links
-	document.querySelector('p.information a').addEventListener('click', function(event) {
-		switch (event.target.classList.toString()) {
-			case 'joelvardy':
-				window.photos.analytics.event('External link', 'Joel Vardy');
-				break;
-			case 'github':
-				window.photos.analytics.event('External link', 'GitHub repo');
-				break;
-		}
+	// Track external clicks (only run this if GA has loaded)
+	ga(function() {
+		document.querySelector('p.information a').addEventListener('click', function(event) {
+
+			event.preventDefault();
+			var _this = this,
+				eventLabel;
+
+			switch (event.target.classList.toString()) {
+				case 'joelvardy':
+					eventLabel = 'Joel Vardy';
+					break;
+				case 'github':
+					eventLabel = 'GitHub repo';
+					break;
+			}
+
+			ga('send', 'event', 'External link', eventLabel, {
+				'hitCallback': function() {
+					document.location.href = _this.href;
+				}
+			});
+
+		});
 	});
 
 });
