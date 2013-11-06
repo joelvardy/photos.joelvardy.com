@@ -82,24 +82,17 @@ Lightbox.prototype = {
 		var _this = this;
 
 		this.elements.body.style.overflow = 'auto';
+		this.elements.overlayPhoto.style.display = 'none';
+		this.elements.overlay.style.display = 'none';
 
-		// Some weird shit happening (with window.scroll) has to be a few ms late
-		setTimeout(function() {
+		// Return page to location user was at
+		window.scroll(0, _this._pagePosition);
 
-			window.scroll(0, _this._pagePosition);
+		_this._isOpen = false;
 
-			_this.elements.overlayPhoto.style.display = 'none';
-			_this.elements.overlay.style.display = 'none';
-
-			_this._isOpen = false;
-
-			// Remove hash
-			window.photos.page.clearHash();
-
-			// Reset page title
-			window.photos.page.resetTitle();
-
-		}, 10);
+		// Reset hash and page title
+		window.photos.page.clearHash();
+		window.photos.page.resetTitle();
 
 	},
 

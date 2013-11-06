@@ -9,10 +9,7 @@ Page.prototype = {
 	},
 
 	clearHash: function() {
-		window.location.hash = '';
-		if (typeof window.history.replaceState == 'function') {
-			history.replaceState({}, '', window.location.href.slice(0, -1));
-		}
+		history.replaceState({}, this._pageTitle, '/');
 	},
 
 	getHash: function() {
@@ -20,7 +17,7 @@ Page.prototype = {
 	},
 
 	setHash: function(hash) {
-		history.pushState({}, 'Photos', '#!/'+hash);
+		history.pushState({}, document.title, '#!/'+hash);
 	},
 
 	resetTitle: function() {
