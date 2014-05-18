@@ -10,11 +10,11 @@ Swipe.prototype = {
 		this.startPosition = {
 			x: 0,
 			y: 0
-		}
+		};
 		this.endPosition = {
 			x: 0,
 			y: 0
-		}
+		};
 		this.leftCallback = leftCallback;
 		this.rightCallback = rightCallback;
 
@@ -22,7 +22,7 @@ Swipe.prototype = {
 
 		document.addEventListener('touchstart', function(event) {
 
-			if (event.targetTouches.length == 1) {
+			if (event.targetTouches.length === 1) {
 				var touchEvent = event.targetTouches[0];
 				_this.active = true;
 				_this.startPosition.X = touchEvent.pageX;
@@ -33,7 +33,7 @@ Swipe.prototype = {
 
 		document.addEventListener('touchmove', function(event) {
 
-			if (event.targetTouches.length == 1) {
+			if (event.targetTouches.length === 1) {
 				var touchEvent = event.targetTouches[0];
 				_this.endPosition.X = touchEvent.pageX;
 				_this.endPosition.Y = touchEvent.pageY;
@@ -67,4 +67,4 @@ Swipe.prototype = {
 
 	}
 
-}
+};

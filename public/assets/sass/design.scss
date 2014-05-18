@@ -1,9 +1,11 @@
 @import "compass/css3";
+@import "_reset";
 
 div.grid {
+
 	overflow: hidden;
-}
-	div.grid div.photo {
+
+	div.photo {
 		background-position: center center;
 		@include background-size(cover);
 		cursor: pointer;
@@ -11,14 +13,19 @@ div.grid {
 		float: left;
 	}
 
+}
+
 p.information {
+
 	margin-bottom: 20px;
 	text-align: center;
-}
-	p.information a {
+
+	a {
 		color: #ff8800;
 		text-decoration: none;
 	}
+
+}
 
 div.overlay {
 	background: #111;

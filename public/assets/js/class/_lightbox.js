@@ -12,12 +12,12 @@ Lightbox.prototype = {
 			overlayPhotoClass: 'overlay-photo',
 			elements: window.photos.grid.gridElement().querySelectorAll('div.photo'),
 			spacing: spacing
-		}
+		};
 
 		// Define elements
 		this.elements = {
 			body: document.querySelector('body')
-		}
+		};
 
 		// Setup elements
 		this._setupElements();
@@ -96,19 +96,21 @@ Lightbox.prototype = {
 
 	},
 
-	_updatePhoto: function(element) {
+	repositionPhoto: function() {
 
 		var _this = this;
 
 		var windowAspect = (window.innerWidth - (this.settings.spacing * 2)) / (window.innerHeight - (this.settings.spacing * 2)),
-			photoAspect = parseFloat(element.dataset.aspectRatio);
+			photoAspect = parseFloat(this.settings.elements[this.currentIndex].dataset.aspectRatio);
 
+		var photoWidth,
+			photoHeight;
 		if (windowAspect > photoAspect) {
-			var photoHeight = (window.innerHeight - (this.settings.spacing * 2)),
-				photoWidth = Math.floor(photoHeight * photoAspect);
+			photoHeight = (window.innerHeight - (this.settings.spacing * 2));
+			photoWidth = Math.floor(photoHeight * photoAspect);
 		} else {
-			var photoWidth = (window.innerWidth - (this.settings.spacing * 2)),
-				photoHeight = Math.floor(photoWidth / photoAspect);
+			photoWidth = (window.innerWidth - (this.settings.spacing * 2));
+			photoHeight = Math.floor(photoWidth / photoAspect);
 		}
 
 		this.elements.overlayPhoto.style.height = photoHeight+'px';
@@ -116,8 +118,17 @@ Lightbox.prototype = {
 		this.elements.overlayPhoto.style.top = Math.floor((window.innerHeight - photoHeight) / 2)+'px';
 		this.elements.overlayPhoto.style.left = Math.floor((window.innerWidth - photoWidth) / 2)+'px';
 
+	},
+
+	_updatePhoto: function(element) {
+
+		var _this = this;
+
+		// Reposition photo
+		_this.repositionPhoto();
+
 		// Update hash
-		if (window.photos.page.getHash() != element.dataset.hash) {
+		if (window.photos.page.getHash() !== element.dataset.hash) {
 			window.photos.page.setHash(element.dataset.hash);
 		}
 
@@ -132,7 +143,7 @@ Lightbox.prototype = {
 			var image = new Image();
 			image.onload = function() {
 				_this.elements.overlayPhoto.style.backgroundImage = 'url('+element.dataset.large+')';
-			}
+			};
 			image.src = element.dataset.large;
 		} else {
 			this.elements.overlayPhoto.style.backgroundImage = 'url('+element.dataset.large+')';
@@ -193,7 +204,7 @@ Lightbox.prototype = {
 			foundPhoto = false;
 
 		Array.prototype.forEach.call(this.settings.elements, function(element, i) {
-			if (element.dataset.hash == hash) {
+			if (element.dataset.hash === hash) {
 
 				foundPhoto = true;
 				_this.currentIndex = i;
@@ -204,7 +215,7 @@ Lightbox.prototype = {
 				return;
 
 			}
-			if ( ! foundPhoto && (i == (_this.settings.elements.length - 1))) {
+			if ( ! foundPhoto && (i === (_this.settings.elements.length - 1))) {
 				window.photos.page.clearHash();
 			}
 		});
@@ -219,12 +230,11 @@ Lightbox.prototype = {
 
 		if ( ! this.isOpen()) return;
 
-		if (typeof this.settings.elements[(this.currentIndex - 1)] == 'undefined') {
+		if (typeof this.settings.elements[(this.currentIndex - 1)] === 'undefined') {
 			this.currentIndex = this.settings.elements.length;
 		}
-		var previousElement = this.settings.elements[(this.currentIndex - 1)];
-		this._updatePhoto(previousElement);
 		this.currentIndex--;
+		this._updatePhoto(this.settings.elements[this.currentIndex]);
 
 	},
 
@@ -232,13 +242,12 @@ Lightbox.prototype = {
 
 		if ( ! this.isOpen()) return;
 
-		if (typeof this.settings.elements[(this.currentIndex + 1)] == 'undefined') {
+		if (typeof this.settings.elements[(this.currentIndex + 1)] === 'undefined') {
 			this.currentIndex = -1;
 		}
-		var previousElement = this.settings.elements[(this.currentIndex + 1)];
-		this._updatePhoto(previousElement);
 		this.currentIndex++;
+		this._updatePhoto(this.settings.elements[this.currentIndex]);
 
 	}
 
-}
+};

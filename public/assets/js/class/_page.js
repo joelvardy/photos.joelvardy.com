@@ -1,5 +1,5 @@
 function Page() {
-	var _pageTitle;
+	//
 }
 
 Page.prototype = {
@@ -31,4 +31,4 @@ Page.prototype = {
 		document.title = title;
 	}
 
-}
+};

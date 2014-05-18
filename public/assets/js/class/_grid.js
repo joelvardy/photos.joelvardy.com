@@ -9,7 +9,7 @@ Grid.prototype = {
 		// Define elements
 		this.elements = {
 			grid: document.querySelector('div.grid')
-		}
+		};
 
 		// Setup elements
 		this._setupElements();
@@ -109,7 +109,7 @@ Grid.prototype = {
 			} else if (photoElement.classList.contains('tall')) {
 
 				// If photo is on the first column make it tall
-				if (currentColumn == 1) {
+				if (currentColumn === 1) {
 					photoElement.style.height = ((_this._photoSize(columns) * 2) + _this.gridSpacing)+'px';
 					photoElement.style.width = _this._photoSize(columns)+'px';
 					currentColumn++;
@@ -130,4 +130,4 @@ Grid.prototype = {
 
 	}
 
-}
+};
