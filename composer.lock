@@ -1,87 +1,42 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
     "hash": "593f4cca7826d4dfc73a6d01b10a5d54",
     "packages": [
-        {
-            "name": "illuminate/support",
-            "version": "dev-master",
-            "target-dir": "Illuminate/Support",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/support.git",
-                "reference": "269d0665b7217d6c5fab49a496aaaa0917f0f4f1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/269d0665b7217d6c5fab49a496aaaa0917f0f4f1",
-                "reference": "269d0665b7217d6c5fab49a496aaaa0917f0f4f1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.7.2",
-                "patchwork/utf8": "1.1.*",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Illuminate\\Support": ""
-                },
-                "files": [
-                    "Illuminate/Support/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com",
-                    "homepage": "https://github.com/taylorotwell",
-                    "role": "Developer"
-                }
-            ],
-            "time": "2013-10-31 13:33:21"
-        },
         {
             "name": "intervention/image",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "49b817a4595df9a8568833644b8845d0758492cd"
+                "reference": "3d0dafa7f9f427173b3f0720824deb607b1330d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/49b817a4595df9a8568833644b8845d0758492cd",
-                "reference": "49b817a4595df9a8568833644b8845d0758492cd",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/3d0dafa7f9f427173b3f0720824deb607b1330d3",
+                "reference": "3d0dafa7f9f427173b3f0720824deb607b1330d3",
                 "shasum": ""
             },
             "require": {
-                "ext-gd": "*",
-                "illuminate/support": "4.*",
+                "ext-fileinfo": "*",
                 "php": ">=5.3.0"
             },
+            "require-dev": {
+                "mockery/mockery": "0.9.*@dev",
+                "phpunit/phpunit": "3.*"
+            },
             "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
                 "intervention/imagecache": "Caching extension for the Intervention Image library"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Intervention\\Image": "src/"
+                    "Intervention\\Image\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -96,15 +51,16 @@
                 }
             ],
             "description": "Image handling and manipulation library with support for Laravel 4 integration",
-            "homepage": "http://intervention.olivervogel.net/image/",
+            "homepage": "http://image.intervention.io/",
             "keywords": [
                 "gd",
                 "image",
+                "imagick",
                 "laravel",
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2013-09-25 15:05:36"
+            "time": "2014-08-28 07:32:57"
         },
         {
             "name": "joelvardy/cache",
@@ -200,12 +156,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joelvardy/routes.git",
-                "reference": "16d0142849ad33d1779316bc978336f882e0073d"
+                "reference": "75438f142db932cb9ecdf9e92e9034ee63a7a11d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joelvardy/routes/zipball/16d0142849ad33d1779316bc978336f882e0073d",
-                "reference": "16d0142849ad33d1779316bc978336f882e0073d",
+                "url": "https://api.github.com/repos/joelvardy/routes/zipball/75438f142db932cb9ecdf9e92e9034ee63a7a11d",
+                "reference": "75438f142db932cb9ecdf9e92e9034ee63a7a11d",
                 "shasum": ""
             },
             "require": {
@@ -237,7 +193,7 @@
                 "route",
                 "routing"
             ],
-            "time": "2013-10-03 14:26:50"
+            "time": "2014-07-22 12:42:43"
         },
         {
             "name": "joelvardy/template",
@@ -289,12 +245,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kevinlebrun/colors.php.git",
-                "reference": "a678335f5942b940efda4d8a411d824b2d97f1df"
+                "reference": "97b210eab65b2bb737aa4171471890323336f2b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/a678335f5942b940efda4d8a411d824b2d97f1df",
-                "reference": "a678335f5942b940efda4d8a411d824b2d97f1df",
+                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/97b210eab65b2bb737aa4171471890323336f2b9",
+                "reference": "97b210eab65b2bb737aa4171471890323336f2b9",
                 "shasum": ""
             },
             "require": {
@@ -332,15 +288,11 @@
                 "console",
                 "shell"
             ],
-            "time": "2013-07-26 10:25:46"
+            "time": "2014-04-01 08:17:03"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "joelvardy/config": 20,
@@ -350,10 +302,7 @@
         "intervention/image": 20,
         "kevinlebrun/colors.php": 20
     },
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "prefer-stable": false,
+    "platform": [],
+    "platform-dev": []
 }
