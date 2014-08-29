@@ -4,39 +4,125 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "593f4cca7826d4dfc73a6d01b10a5d54",
+    "hash": "380b7d67617306ae014e4491f6af9239",
     "packages": [
         {
-            "name": "intervention/image",
+            "name": "illuminate/contracts",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Intervention/image.git",
-                "reference": "3d0dafa7f9f427173b3f0720824deb607b1330d3"
+                "url": "https://github.com/illuminate/contracts.git",
+                "reference": "e4c1a655d320eb53b2a134ba5a654207621ee8a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/3d0dafa7f9f427173b3f0720824deb607b1330d3",
-                "reference": "3d0dafa7f9f427173b3f0720824deb607b1330d3",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/e4c1a655d320eb53b2a134ba5a654207621ee8a6",
+                "reference": "e4c1a655d320eb53b2a134ba5a654207621ee8a6",
                 "shasum": ""
             },
             "require": {
-                "ext-fileinfo": "*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Contracts\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "time": "2014-08-28 21:56:18"
+        },
+        {
+            "name": "illuminate/support",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/support.git",
+                "reference": "89ce02d0d788a23d4656d5d92a15e33bb10a49de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/89ce02d0d788a23d4656d5d92a15e33bb10a49de",
+                "reference": "89ce02d0d788a23d4656d5d92a15e33bb10a49de",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "4.3.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "jeremeamia/superclosure": "~1.0",
+                "patchwork/utf8": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Support\\": ""
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "time": "2014-08-27 10:37:35"
+        },
+        {
+            "name": "intervention/image",
+            "version": "1.6.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "432f3b28ea08455146b157c6bfdebf4ef5bc661e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/432f3b28ea08455146b157c6bfdebf4ef5bc661e",
+                "reference": "432f3b28ea08455146b157c6bfdebf4ef5bc661e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "illuminate/support": "4.*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "mockery/mockery": "0.9.*@dev",
-                "phpunit/phpunit": "3.*"
+                "phpunit/phpunit": "4.1.*"
             },
             "suggest": {
-                "ext-gd": "to use GD library based image processing.",
-                "ext-imagick": "to use Imagick based image processing.",
                 "intervention/imagecache": "Caching extension for the Intervention Image library"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Intervention\\Image\\": "src/"
+                    "Intervention\\Image": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -55,12 +141,11 @@
             "keywords": [
                 "gd",
                 "image",
-                "imagick",
                 "laravel",
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2014-08-28 07:32:57"
+            "time": "2014-06-07 16:25:27"
         },
         {
             "name": "joelvardy/cache",
@@ -299,7 +384,6 @@
         "joelvardy/routes": 20,
         "joelvardy/template": 20,
         "joelvardy/cache": 20,
-        "intervention/image": 20,
         "kevinlebrun/colors.php": 20
     },
     "prefer-stable": false,

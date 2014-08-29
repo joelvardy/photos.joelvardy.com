@@ -4,7 +4,7 @@
 		"joelvardy/routes": "dev-master",
 		"joelvardy/template": "dev-master",
 		"joelvardy/cache": "dev-master",
-		"intervention/image": "dev-master",
+		"intervention/image": "1.*",
 		"kevinlebrun/colors.php": "dev-master"
 	},
 	"autoload": {
