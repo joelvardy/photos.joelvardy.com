@@ -7,79 +7,39 @@
     "hash": "380b7d67617306ae014e4491f6af9239",
     "packages": [
         {
-            "name": "illuminate/contracts",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/contracts.git",
-                "reference": "e4c1a655d320eb53b2a134ba5a654207621ee8a6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/e4c1a655d320eb53b2a134ba5a654207621ee8a6",
-                "reference": "e4c1a655d320eb53b2a134ba5a654207621ee8a6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Contracts\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "time": "2014-08-28 21:56:18"
-        },
-        {
             "name": "illuminate/support",
-            "version": "dev-master",
+            "version": "4.2.x-dev",
+            "target-dir": "Illuminate/Support",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "89ce02d0d788a23d4656d5d92a15e33bb10a49de"
+                "reference": "19a75a76a4a245557862a441e64d50cac73a0ed0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/89ce02d0d788a23d4656d5d92a15e33bb10a49de",
-                "reference": "89ce02d0d788a23d4656d5d92a15e33bb10a49de",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/19a75a76a4a245557862a441e64d50cac73a0ed0",
+                "reference": "19a75a76a4a245557862a441e64d50cac73a0ed0",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "4.3.*",
                 "php": ">=5.4.0"
             },
             "require-dev": {
                 "jeremeamia/superclosure": "~1.0",
-                "patchwork/utf8": "~1.1"
+                "patchwork/utf8": "1.1.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Illuminate\\Support\\": ""
+                "psr-0": {
+                    "Illuminate\\Support": ""
                 },
                 "files": [
-                    "helpers.php"
+                    "Illuminate/Support/helpers.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -92,7 +52,7 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-08-27 10:37:35"
+            "time": "2014-09-21 16:05:47"
         },
         {
             "name": "intervention/image",
@@ -330,12 +290,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kevinlebrun/colors.php.git",
-                "reference": "97b210eab65b2bb737aa4171471890323336f2b9"
+                "reference": "7bf126ab246278a4597ffd3a32395eb458faf76b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/97b210eab65b2bb737aa4171471890323336f2b9",
-                "reference": "97b210eab65b2bb737aa4171471890323336f2b9",
+                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/7bf126ab246278a4597ffd3a32395eb458faf76b",
+                "reference": "7bf126ab246278a4597ffd3a32395eb458faf76b",
                 "shasum": ""
             },
             "require": {
@@ -373,7 +333,7 @@
                 "console",
                 "shell"
             ],
-            "time": "2014-04-01 08:17:03"
+            "time": "2014-09-18 09:15:40"
         }
     ],
     "packages-dev": [],
