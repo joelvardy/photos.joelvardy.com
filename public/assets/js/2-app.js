@@ -1,9 +1,3 @@
-// @codekit-prepend "class/_swipe.js";
-// @codekit-prepend "class/_analytics.js";
-// @codekit-prepend "class/_lightbox.js";
-// @codekit-prepend "class/_page.js";
-// @codekit-prepend "class/_grid.js";
-
 document.addEventListener('DOMContentLoaded', function() {
 
 	window.photos = {

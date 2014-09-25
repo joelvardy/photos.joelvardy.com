@@ -1,17 +1,29 @@
-# OSX
+# Operating System
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon
 ._*
 .Spotlight-V100
 .Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Icon
 
-# Compass
-.sass-cache
 
 # Composer
-vendor
+/vendor
+
+
+# Node
+/node_modules
+
+
+# SASS
+.sass-cache
+
 
 # Don't save processed images in version control
 public/assets/photos/*

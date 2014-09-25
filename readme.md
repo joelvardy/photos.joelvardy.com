@@ -28,6 +28,26 @@ php process
 
 **Note::** The processed directory (specified in the photos config file) must be writable by the php script.
 
+## Development
+
+The project uses Composer and NPM for package management, to install packages run:
+
+```
+composer install
+npm install
+```
+
+### SASS and JavaScript
+
+To minify JavaScript and compile SASS run:
+
+```
+gulp
+
+# Or to watch for changes
+gulp watch
+```
+
 ## Notes
 
 ### Binary Data and Git

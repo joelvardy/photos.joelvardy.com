@@ -4,7 +4,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>Photos Taken By Joel Vardy</title>
 		<meta name="description" content="I've taken thousands of photographs, have a look at this collection of my favourite ones." />
-		<link rel="stylesheet" href="/assets/css/design.css" />
+		<link rel="stylesheet" href="/assets/minified/design.css" />
 		<link rel="author" href="https://plus.google.com/102110732747129499789" />
 	</head>
 	<body>
@@ -40,7 +40,7 @@
 			ga('send', 'pageview');
 		</script>
 
-		<script defer src="/assets/js/app.min.js"></script>
+		<script defer src="/assets/minified/app.js"></script>
 
 	</body>
 </html>

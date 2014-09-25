@@ -1,4 +1,3 @@
-@import "compass/css3";
 @import "_reset";
 
 div.grid {
@@ -7,7 +6,7 @@ div.grid {
 
 	div.photo {
 		background-position: center center;
-		@include background-size(cover);
+		background-size: cover;
 		cursor: pointer;
 		display: block;
 		float: left;
@@ -38,7 +37,7 @@ div.overlay {
 }
 div.overlay-photo {
 	background-position: center center;
-	@include background-size(cover);
+	background-size: cover;
 	cursor: pointer;
 	position: fixed;
 }
