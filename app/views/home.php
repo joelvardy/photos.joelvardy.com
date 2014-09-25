@@ -5,7 +5,6 @@
 		<title>Photos Taken By Joel Vardy</title>
 		<meta name="description" content="I've taken thousands of photographs, have a look at this collection of my favourite ones." />
 		<link rel="stylesheet" href="/assets/minified/design.css" />
-		<link rel="author" href="https://plus.google.com/102110732747129499789" />
 	</head>
 	<body>
 
