@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3ced020d777ed319f05f0ac0be86f446",
+    "hash": "0638cadcdae40c33be1bfc4a13bb580b",
     "packages": [
         {
             "name": "illuminate/support",
@@ -108,27 +108,29 @@
             "time": "2014-06-07 16:25:27"
         },
         {
-            "name": "joelvardy/cache",
-            "version": "dev-master",
+            "name": "slim/slim",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/joelvardy/cache.git",
-                "reference": "673635aa1f96e30acad907a94278a9e17afc8b9b"
+                "url": "https://github.com/codeguy/Slim.git",
+                "reference": "4906b77a07c7bd6ff1a99aea903e940a2d4fa106"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joelvardy/cache/zipball/673635aa1f96e30acad907a94278a9e17afc8b9b",
-                "reference": "673635aa1f96e30acad907a94278a9e17afc8b9b",
+                "url": "https://api.github.com/repos/codeguy/Slim/zipball/4906b77a07c7bd6ff1a99aea903e940a2d4fa106",
+                "reference": "4906b77a07c7bd6ff1a99aea903e940a2d4fa106",
                 "shasum": ""
             },
             "require": {
-                "joelvardy/config": "dev-master",
-                "php": ">=5.0.0"
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-mcrypt": "Required for HTTP cookie encryption"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Joelvardy": "src"
+                    "Slim": "."
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -137,163 +139,25 @@
             ],
             "authors": [
                 {
-                    "name": "Joel Vardy",
-                    "email": "info@joelvardy.com",
-                    "homepage": "https://joelvardy.com",
-                    "role": "Developer"
+                    "name": "Josh Lockhart",
+                    "email": "info@joshlockhart.com",
+                    "homepage": "http://www.joshlockhart.com/"
                 }
             ],
-            "description": "Database connection library.",
-            "homepage": "https://github.com/joelvardy/cache",
+            "description": "Slim Framework, a PHP micro framework",
+            "homepage": "http://github.com/codeguy/Slim",
             "keywords": [
-                "cache",
-                "caching",
-                "memcached"
-            ],
-            "time": "2013-10-02 22:11:49"
-        },
-        {
-            "name": "joelvardy/config",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/joelvardy/config.git",
-                "reference": "38679a3afda17ab62baf4fe829ee5f7f71922c11"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/joelvardy/config/zipball/38679a3afda17ab62baf4fe829ee5f7f71922c11",
-                "reference": "38679a3afda17ab62baf4fe829ee5f7f71922c11",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Joelvardy": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Joel Vardy",
-                    "email": "info@joelvardy.com",
-                    "homepage": "https://joelvardy.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Application configuration library.",
-            "homepage": "https://github.com/joelvardy/config",
-            "keywords": [
-                "config",
-                "configuration"
-            ],
-            "time": "2013-10-02 22:08:31"
-        },
-        {
-            "name": "joelvardy/routes",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/joelvardy/routes.git",
-                "reference": "75438f142db932cb9ecdf9e92e9034ee63a7a11d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/joelvardy/routes/zipball/75438f142db932cb9ecdf9e92e9034ee63a7a11d",
-                "reference": "75438f142db932cb9ecdf9e92e9034ee63a7a11d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Joelvardy": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Joel Vardy",
-                    "email": "info@joelvardy.com",
-                    "homepage": "http://joelvardy.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Simple RESTful routing",
-            "homepage": "https://github.com/joelvardy/routes",
-            "keywords": [
+                "microframework",
                 "rest",
-                "restful",
-                "route",
-                "routing"
+                "router"
             ],
-            "time": "2014-07-22 12:42:43"
-        },
-        {
-            "name": "joelvardy/template",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/joelvardy/template.git",
-                "reference": "4a8a2b7ee24fece8a6f019e0a8d214b5f72a914a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/joelvardy/template/zipball/4a8a2b7ee24fece8a6f019e0a8d214b5f72a914a",
-                "reference": "4a8a2b7ee24fece8a6f019e0a8d214b5f72a914a",
-                "shasum": ""
-            },
-            "require": {
-                "joelvardy/config": "dev-master",
-                "php": ">=5.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Joelvardy": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Joel Vardy",
-                    "email": "info@joelvardy.com",
-                    "homepage": "https://joelvardy.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Simple vanilla PHP templating library.",
-            "homepage": "https://github.com/joelvardy/template",
-            "keywords": [
-                "template",
-                "templating"
-            ],
-            "time": "2013-10-02 22:15:52"
+            "time": "2014-04-05 18:33:59"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "joelvardy/config": 20,
-        "joelvardy/routes": 20,
-        "joelvardy/template": 20,
-        "joelvardy/cache": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "platform": [],
     "platform-dev": []

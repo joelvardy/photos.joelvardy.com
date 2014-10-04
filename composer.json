@@ -1,9 +1,6 @@
 {
 	"require": {
-		"joelvardy/config": "dev-master",
-		"joelvardy/routes": "dev-master",
-		"joelvardy/template": "dev-master",
-		"joelvardy/cache": "dev-master",
+		"slim/slim": "2.*",
 		"intervention/image": "1.*"
 	},
 	"autoload": {

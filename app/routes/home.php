@@ -1,14 +1,9 @@
 <?php
 
-use Joelvardy\Template;
 use App\Photos;
 
-$routes->get('/', function () {
+$app->get('/', function () use ($app) {
 
-	$photos = new Photos();
-
-	$view = Template::build('home');
-	$view->photos = $photos->read();
-	echo $view;
+	$app->render('home.php');
 
 });

@@ -1,15 +1,14 @@
 <?php
 
-// Initialise the application
-require('../init.php');
+require(dirname(__DIR__).'/init.php');
 
-// Initialise routes
-$routes = new Joelvardy\Routes();
+$app = new \Slim\Slim([
+	'templates.path' => VIEWS_PATH
+]);
 
 // Load application routes
 foreach (glob(ROUTES_PATH.'/*.php') as $route) {
 	require($route);
 }
 
-// Run routes
-$routes->run();
+$app->run();
