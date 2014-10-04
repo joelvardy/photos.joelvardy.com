@@ -27,7 +27,7 @@ gulp.task('styles', function () {
 
 // JavaScript
 gulp.task('scripts', function () {
-	return gulp.src('public/assets/js/**/*.js')
+	return gulp.src(['bower_components/angular/angular.js', 'public/assets/js/**/*.js'])
 	.pipe(concat('app.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('public/assets/minified'))
@@ -40,7 +40,7 @@ gulp.task('scripts', function () {
 
 // Clean
 gulp.task('clean', function() {
-	return gulp.src(['public/assets/minified'], {
+	return gulp.src('public/assets/minified', {
 		read: false
 	})
 	.pipe(rimraf());

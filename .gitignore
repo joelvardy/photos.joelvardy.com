@@ -21,6 +21,10 @@ Icon
 /node_modules
 
 
+# Bower (I have decided not to check these in as source is compiled into /public/assets/minified)
+/bower_components
+
+
 # SASS
 .sass-cache
 

@@ -30,7 +30,7 @@ php process
 
 ## Development
 
-The project uses Composer and NPM for package management, to install packages run:
+The project uses Composer, NPM, and Bower for package management, to install packages run:
 
 ```
 composer install
@@ -47,6 +47,10 @@ gulp
 # Or to watch for changes
 gulp watch
 ```
+
+### Bower
+
+Currently the `/bower_modules` directory has been checked in to the repo. So there is no need to run `bower install`
 
 ## Notes
 
