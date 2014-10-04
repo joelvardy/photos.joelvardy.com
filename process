@@ -22,7 +22,7 @@ foreach ($data as $photo) {
 
 	// If the hash hasn't been set the file can't be found
 	if ( ! isset($photo->hash)) {
-		Console::output('<error>The file '.$photo->filename.' could not be found</error>');
+		Console::output('The file '.$photo->filename.' could not be found!');
 		$issues++;
 		continue;
 	}
@@ -56,9 +56,9 @@ foreach ($data as $photo) {
 
 			try {
 				$image->save($filepath, $size_info->quality);
-				Console::output("\t<success>Saved processed image</success>");
+				Console::output("\tSaved processed image.");
 			} catch (Exception $e) {
-				Console::output("\t<error>Could not save processed image</error>");
+				Console::output("\tCould not save processed image.");
 				$issues++;
 			}
 

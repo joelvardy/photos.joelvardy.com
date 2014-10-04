@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Colors\Color;
-
 /**
  * Console library
  *
@@ -34,16 +32,7 @@ class Console {
 	 * @return	void
 	 */
 	public static function output($string) {
-
-		$colour = new Color();
-
-		$colour->setTheme(array(
-			'success' => 'green',
-			'error' => 'red'
-		));
-
-		print($colour($string)->colorize().PHP_EOL);
-
+		print($string.PHP_EOL);
 	}
 
 

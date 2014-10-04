@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "380b7d67617306ae014e4491f6af9239",
+    "hash": "3ced020d777ed319f05f0ac0be86f446",
     "packages": [
         {
             "name": "illuminate/support",
@@ -13,19 +13,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "19a75a76a4a245557862a441e64d50cac73a0ed0"
+                "reference": "4831699d6bcddd766e3cebbd8279976854d37027"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/19a75a76a4a245557862a441e64d50cac73a0ed0",
-                "reference": "19a75a76a4a245557862a441e64d50cac73a0ed0",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/4831699d6bcddd766e3cebbd8279976854d37027",
+                "reference": "4831699d6bcddd766e3cebbd8279976854d37027",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "jeremeamia/superclosure": "~1.0",
+                "jeremeamia/superclosure": "~1.0.1",
                 "patchwork/utf8": "1.1.*"
             },
             "type": "library",
@@ -52,7 +52,7 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-09-21 16:05:47"
+            "time": "2014-09-27 01:17:10"
         },
         {
             "name": "intervention/image",
@@ -283,57 +283,6 @@
                 "templating"
             ],
             "time": "2013-10-02 22:15:52"
-        },
-        {
-            "name": "kevinlebrun/colors.php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kevinlebrun/colors.php.git",
-                "reference": "7bf126ab246278a4597ffd3a32395eb458faf76b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/7bf126ab246278a4597ffd3a32395eb458faf76b",
-                "reference": "7bf126ab246278a4597ffd3a32395eb458faf76b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*",
-                "satooshi/php-coveralls": "dev-master",
-                "squizlabs/php_codesniffer": "1.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Colors": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kevin Le Brun",
-                    "email": "lebrun.k@gmail.com",
-                    "homepage": "http://kevinlebrun.fr",
-                    "role": "developer"
-                }
-            ],
-            "description": "Colors for PHP CLI scripts",
-            "homepage": "https://github.com/kevinlebrun/colors.php",
-            "keywords": [
-                "cli",
-                "color",
-                "colors",
-                "console",
-                "shell"
-            ],
-            "time": "2014-09-18 09:15:40"
         }
     ],
     "packages-dev": [],
@@ -343,8 +292,7 @@
         "joelvardy/config": 20,
         "joelvardy/routes": 20,
         "joelvardy/template": 20,
-        "joelvardy/cache": 20,
-        "kevinlebrun/colors.php": 20
+        "joelvardy/cache": 20
     },
     "prefer-stable": false,
     "platform": [],
