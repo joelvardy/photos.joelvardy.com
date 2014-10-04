@@ -26,9 +26,29 @@ div.grid {
 		@extend .photo;
 		display: block;
 		float: left;
-		height: 21.875vw;
+		height: 17vw;
 		margin: 0 2.5vw 2.5vw 0;
-		width: 21.875vw;
+		width: 17vw;
+
+		@media screen and (max-width: 1200px) {
+			height: 21.875vw;
+			width: 21.875vw;
+		}
+
+		@media screen and (max-width: 900px) {
+			height: 30vw;
+			width: 30vw;
+		}
+
+		@media screen and (max-width: 600px) {
+			height: 46.25vw;
+			width: 46.25vw;
+		}
+
+		@media screen and (max-width: 350px) {
+			height: 95vw;
+			width: 95vw;
+		}
 
 	}
 
