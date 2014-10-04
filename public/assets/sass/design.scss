@@ -1,15 +1,35 @@
-@import "_reset";
+*, *:after, *:before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background: #f2efeb;
+	color: #222;
+	font: 100%/1.5em Helvetica, Arial, sans-serif;
+	position: relative;
+}
+
+.photo {
+	background-position: center center;
+	background-size: cover;
+}
 
 div.grid {
 
 	overflow: hidden;
+	padding: 2.5vw 0 0 2.5vw;
 
-	div.photo {
-		background-position: center center;
-		background-size: cover;
-		cursor: pointer;
+	a {
+
+		@extend .photo;
 		display: block;
 		float: left;
+		height: 21.875vw;
+		margin: 0 2.5vw 2.5vw 0;
+		width: 21.875vw;
+
 	}
 
 }
@@ -24,21 +44,4 @@ p.information {
 		text-decoration: none;
 	}
 
-}
-
-div.overlay {
-	background: #111;
-	bottom: 0;
-	cursor: zoom-out;
-	display: none;
-	left: 0;
-	position: fixed;
-	right: 0;
-	top: 0;
-}
-div.overlay-photo {
-	background-position: center center;
-	background-size: cover;
-	cursor: pointer;
-	position: fixed;
 }

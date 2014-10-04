@@ -14,7 +14,11 @@
 	</head>
 	<body>
 
-		<div class="grid" ng-app='PhotosApp' ng-controller='GridController'></div>
+		<div class="grid" ng-app='PhotosApp' ng-controller='GridController'>
+
+			<a ng-repeat='photo in photos' href="{{ photo.sizes.large }}" title="{{ photo.title }}" data-hash="{{ photo.hash }}" style="background-image: url({{ photo.sizes.small }});"></a>
+
+		</div>
 
 		<p class="information">A collection of my favourite photographs, <a class="joelvardy" href="https://joelvardy.com/" title="Joel Vardy's personal website">Joel Vardy</a> - source code can be found on <a class="github" href="https://github.com/joelvardy/photos.joelvardy.com" title="Source code on GitHub">GitHub</a>.</p>
 
