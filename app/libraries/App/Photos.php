@@ -81,11 +81,6 @@ class Photos {
 			// Add MD5 hash to each photo
 			$photo->hash = md5_file($filepath);
 
-			// Define the largest dimension
-			list($width, $height, $type, $attr) = getimagesize($filepath);
-			$photo->largest_dimension = ($height > $width ? 'height' : 'width');
-			$photo->aspect_ratio = $width / $height;
-
 		}
 
 		return $photos;
@@ -126,7 +121,6 @@ class Photos {
 			// Clean up data
 			if ($status) {
 				unset($photo->filename);
-				unset($photo->largest_dimension);
 				$photos[] = $photo;
 			}
 
