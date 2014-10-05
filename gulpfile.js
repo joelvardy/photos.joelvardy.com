@@ -27,9 +27,9 @@ gulp.task('styles', function () {
 
 // JavaScript
 gulp.task('scripts', function () {
-	return gulp.src(['bower_components/angular/angular.js', 'public/assets/js/**/*.js'])
+	return gulp.src(['bower_components/angular/angular.min.js', 'bower_components/angular-route/angular-route.min.js', 'public/assets/js/**/*.js'])
 	.pipe(concat('app.js'))
-	.pipe(uglify())
+	// .pipe(uglify())
 	.pipe(gulp.dest('public/assets/minified'))
 	.pipe(notify({
 		title: 'Scripts',

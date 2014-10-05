@@ -12,15 +12,11 @@
 		<script src="/assets/minified/app.js"></script>
 
 	</head>
-	<body>
+	<body ng-app='PhotosApp'>
 
-		<div class="grid" ng-app='PhotosApp' ng-controller='GridController'>
-
-			<a ng-repeat='photo in photos' href="{{ photo.sizes.large }}" title="{{ photo.title }}" data-hash="{{ photo.hash }}" style="background-image: url({{ photo.sizes.small }});"></a>
+		<div id="page" ng-view>
 
 		</div>
-
-		<p class="information">A collection of my favourite photographs, <a class="joelvardy" href="https://joelvardy.com/" title="Joel Vardy's personal website">Joel Vardy</a> - source code can be found on <a class="github" href="https://github.com/joelvardy/photos.joelvardy.com" title="Source code on GitHub">GitHub</a>.</p>
 
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
