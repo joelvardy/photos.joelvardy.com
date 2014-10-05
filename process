@@ -47,9 +47,10 @@ foreach ($data as $photo) {
 			$image = Image::make($photos->directory('original').'/'.$photo->filename);
 
 			// Resize
-			if ($photo->largest_dimension == 'height') {
+			list($width, $height, $type, $attr) = getimagesize($photos->directory('original').'/'.$photo->filename);
+			if ($height > $width) {
 				$image->heighten($size_info->max_dimension);
-			} else if ($photo->largest_dimension == 'width') {
+			} else {
 				$image->widen($size_info->max_dimension);
 			}
 
