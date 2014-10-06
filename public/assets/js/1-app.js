@@ -1,4 +1,4 @@
-var photosApp = angular.module('PhotosApp', ['ngRoute']);
+var photosApp = angular.module('PhotosApp', ['ngRoute', 'ngTouch']);
 
 photosApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 

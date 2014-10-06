@@ -19,8 +19,15 @@ photosApp.controller('PhotoController', ['$scope', 'PhotoData', '$document', '$l
 			$location.path('/');
 		}
 
+		$scope.previous = function (event) {
+			if (event) event.stopPropagation();
+			if (typeof photos[currentPhotoKey - 1] !== 'undefined') {
+				$location.path('/'+photos[currentPhotoKey - 1].hash);
+			}
+		}
+
 		$scope.next = function (event) {
-			event.stopPropagation();
+			if (event) event.stopPropagation();
 			if (typeof photos[currentPhotoKey + 1] !== 'undefined') {
 				$location.path('/'+photos[currentPhotoKey + 1].hash);
 			}
@@ -35,15 +42,11 @@ photosApp.controller('PhotoController', ['$scope', 'PhotoData', '$document', '$l
 						break;
 
 					case 37:
-						if (typeof photos[currentPhotoKey - 1] !== 'undefined') {
-							$location.path('/'+photos[currentPhotoKey - 1].hash);
-						}
+						$scope.previous();
 						break;
 
 					case 39:
-						if (typeof photos[currentPhotoKey + 1] !== 'undefined') {
-							$location.path('/'+photos[currentPhotoKey + 1].hash);
-						}
+						$scope.next();
 						break;
 
 				}

@@ -78,6 +78,7 @@ div.photo {
 	img {
 		cursor: pointer;
 		position: absolute;
+		-webkit-user-drag: none;
 	}
 
 }
