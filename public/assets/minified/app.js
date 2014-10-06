@@ -232,7 +232,7 @@ n.directive("ngView",x);n.directive("ngView",z);x.$inject=["$route","$anchorScro
 
 var photosApp = angular.module('PhotosApp', ['ngRoute']);
 
-photosApp.config(function ($routeProvider) {
+photosApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
 	$routeProvider.when('/', {
 		templateUrl: '/assets/templates/home.html',
@@ -242,22 +242,29 @@ photosApp.config(function ($routeProvider) {
 		controller: 'PhotoController',
 	});
 
-});
+	$locationProvider.html5Mode(true);
 
-photosApp.factory('PhotoData', function () {
+}]);
+
+photosApp.factory('PhotoData', ['$http', function ($http) {
 
 	var data = [];
 
-	return {
-		get: function () {
-			return data;
-		},
-		set: function (photos) {
-			data = photos;
-		}
-	};
+	return function (callback) {
 
-});
+		if ( ! data.length) {
+			$http.get('/photos.json').then(function (response) {
+				data = response.data;
+				callback(data);
+			});
+			return;
+		}
+
+		callback(data);
+
+	}
+
+}]);
 
 photosApp.directive('jvPhotoFill', ['$window', function ($window) {
 	return {
@@ -305,42 +312,69 @@ photosApp.directive('jvPhotoFill', ['$window', function ($window) {
 	};
 }]);
 
-photosApp.controller('GridController', ['$scope', '$http', 'PhotoData', function($scope, $http, PhotoData) {
+photosApp.controller('GridController', ['$scope', 'PhotoData', function($scope, PhotoData) {
 
-	if ( ! PhotoData.get().length) {
-		$http.get('/photos.json').then(function (response) {
-			PhotoData.set(response.data);
-			$scope.photos = PhotoData.get();
-		});
-	}
-
-	$scope.photos = PhotoData.get();
+	PhotoData(function (photos) {
+		$scope.photos = photos;
+	});
 
 }]);
 
-photosApp.controller('PhotoController', ['$scope', '$http', 'PhotoData', '$location', '$routeParams', function($scope, $http, PhotoData, $location, $routeParams) {
+photosApp.controller('PhotoController', ['$scope', 'PhotoData', '$document', '$location', '$routeParams', function($scope, PhotoData, $document, $location, $routeParams) {
+	PhotoData(function (photos) {
 
-	var run = function (photos) {
+		var currentPhotoKey = 0;
 
-		angular.forEach(photos, function(photo) {
+		angular.forEach(photos, function(photo, key) {
 			if (photo.hash === $routeParams.photoHash) {
+				currentPhotoKey = key;
 				$scope.photo = photo;
 			}
 		});
 
+		// Redirect to the homepage (don't save this pageview in history)
 		if (typeof $scope.photo === 'undefined') {
+			$location.path('/').replace();
+		}
+
+		$scope.close = function () {
 			$location.path('/');
 		}
 
-	}
+		$scope.next = function (event) {
+			event.stopPropagation();
+			if (typeof photos[currentPhotoKey + 1] !== 'undefined') {
+				$location.path('/'+photos[currentPhotoKey + 1].hash);
+			}
+		}
 
-	if (PhotoData.get().length) {
-		run(PhotoData.get());
-	} else {
-		$http.get('/photos.json').then(function (response) {
-			PhotoData.set(response.data);
-			run(PhotoData.get());
+		$document.bind('keydown', function (event) {
+			$scope.$apply(function() {
+				switch (event.keyCode) {
+
+					case 27:
+						$location.path('/');
+						break;
+
+					case 37:
+						if (typeof photos[currentPhotoKey - 1] !== 'undefined') {
+							$location.path('/'+photos[currentPhotoKey - 1].hash);
+						}
+						break;
+
+					case 39:
+						if (typeof photos[currentPhotoKey + 1] !== 'undefined') {
+							$location.path('/'+photos[currentPhotoKey + 1].hash);
+						}
+						break;
+
+				}
+			});
 		});
-	}
 
+		$scope.$on('$destroy', function () {
+			$document.unbind('keydown');
+		});
+
+	});
 }]);

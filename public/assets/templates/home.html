@@ -1,6 +1,6 @@
 <div class="grid">
 
-	<a ng-repeat='photo in photos' href="{{ photo.sizes.large }}" title="{{ photo.title }}" data-hash="{{ photo.hash }}" style="background-image: url({{ photo.sizes.small }});"></a>
+	<a ng-repeat='photo in photos' href="/{{ photo.hash }}" title="{{ photo.title }}" style="background-image: url({{ photo.sizes.small }});"></a>
 
 </div>
 

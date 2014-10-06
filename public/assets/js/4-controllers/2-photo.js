@@ -1,26 +1,58 @@
-photosApp.controller('PhotoController', ['$scope', '$http', 'PhotoData', '$location', '$routeParams', function($scope, $http, PhotoData, $location, $routeParams) {
+photosApp.controller('PhotoController', ['$scope', 'PhotoData', '$document', '$location', '$routeParams', function($scope, PhotoData, $document, $location, $routeParams) {
+	PhotoData(function (photos) {
 
-	var run = function (photos) {
+		var currentPhotoKey = 0;
 
-		angular.forEach(photos, function(photo) {
+		angular.forEach(photos, function(photo, key) {
 			if (photo.hash === $routeParams.photoHash) {
+				currentPhotoKey = key;
 				$scope.photo = photo;
 			}
 		});
 
+		// Redirect to the homepage (don't save this pageview in history)
 		if (typeof $scope.photo === 'undefined') {
+			$location.path('/').replace();
+		}
+
+		$scope.close = function () {
 			$location.path('/');
 		}
 
-	}
+		$scope.next = function (event) {
+			event.stopPropagation();
+			if (typeof photos[currentPhotoKey + 1] !== 'undefined') {
+				$location.path('/'+photos[currentPhotoKey + 1].hash);
+			}
+		}
 
-	if (PhotoData.get().length) {
-		run(PhotoData.get());
-	} else {
-		$http.get('/photos.json').then(function (response) {
-			PhotoData.set(response.data);
-			run(PhotoData.get());
+		$document.bind('keydown', function (event) {
+			$scope.$apply(function() {
+				switch (event.keyCode) {
+
+					case 27:
+						$location.path('/');
+						break;
+
+					case 37:
+						if (typeof photos[currentPhotoKey - 1] !== 'undefined') {
+							$location.path('/'+photos[currentPhotoKey - 1].hash);
+						}
+						break;
+
+					case 39:
+						if (typeof photos[currentPhotoKey + 1] !== 'undefined') {
+							$location.path('/'+photos[currentPhotoKey + 1].hash);
+						}
+						break;
+
+				}
+			});
 		});
-	}
 
+		$scope.$on('$destroy', function () {
+			$document.unbind('keydown');
+		});
+
+	});
 }]);

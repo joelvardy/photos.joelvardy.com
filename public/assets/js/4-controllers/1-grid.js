@@ -1,12 +1,7 @@
-photosApp.controller('GridController', ['$scope', '$http', 'PhotoData', function($scope, $http, PhotoData) {
+photosApp.controller('GridController', ['$scope', 'PhotoData', function($scope, PhotoData) {
 
-	if ( ! PhotoData.get().length) {
-		$http.get('/photos.json').then(function (response) {
-			PhotoData.set(response.data);
-			$scope.photos = PhotoData.get();
-		});
-	}
-
-	$scope.photos = PhotoData.get();
+	PhotoData(function (photos) {
+		$scope.photos = photos;
+	});
 
 }]);

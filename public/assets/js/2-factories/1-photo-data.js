@@ -1,14 +1,19 @@
-photosApp.factory('PhotoData', function () {
+photosApp.factory('PhotoData', ['$http', function ($http) {
 
 	var data = [];
 
-	return {
-		get: function () {
-			return data;
-		},
-		set: function (photos) {
-			data = photos;
-		}
-	};
+	return function (callback) {
 
-});
+		if ( ! data.length) {
+			$http.get('/photos.json').then(function (response) {
+				data = response.data;
+				callback(data);
+			});
+			return;
+		}
+
+		callback(data);
+
+	}
+
+}]);

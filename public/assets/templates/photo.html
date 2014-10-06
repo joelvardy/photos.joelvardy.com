@@ -1,5 +1,5 @@
-<div ngCloak class="photo">
+<div ngCloak ng-click='close()' class="photo">
 
-	<img jv-photo-fill alt="{{ photo.title }}" ng-src="{{ photo.sizes.large }}" />
+	<img jv-photo-fill ng-click='next($event)' alt="{{ photo.title }}" ng-src="{{ photo.sizes.large }}" />
 
 </div>

@@ -1,6 +1,6 @@
 var photosApp = angular.module('PhotosApp', ['ngRoute']);
 
-photosApp.config(function ($routeProvider) {
+photosApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
 	$routeProvider.when('/', {
 		templateUrl: '/assets/templates/home.html',
@@ -10,4 +10,6 @@ photosApp.config(function ($routeProvider) {
 		controller: 'PhotoController',
 	});
 
-});
+	$locationProvider.html5Mode(true);
+
+}]);
