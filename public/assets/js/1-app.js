@@ -13,3 +13,13 @@ photosApp.config(['$routeProvider', '$locationProvider', function ($routeProvide
 	$locationProvider.html5Mode(true);
 
 }]);
+
+photosApp.run(['$rootScope', '$window', '$location', function ($rootScope, $window, $location) {
+
+	$rootScope.$on('$routeChangeSuccess', function () {
+		$window.ga('send', 'pageview', {
+			page: $location.path()
+		});
+	});
+
+}]);

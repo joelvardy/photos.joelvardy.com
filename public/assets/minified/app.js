@@ -260,6 +260,16 @@ photosApp.config(['$routeProvider', '$locationProvider', function ($routeProvide
 
 }]);
 
+photosApp.run(['$rootScope', '$window', '$location', function ($rootScope, $window, $location) {
+
+	$rootScope.$on('$routeChangeSuccess', function () {
+		$window.ga('send', 'pageview', {
+			page: $location.path()
+		});
+	});
+
+}]);
+
 photosApp.factory('PhotoData', ['$http', function ($http) {
 
 	var data = [];
