@@ -1,4 +1,4 @@
-photosApp.controller('PhotoController', ['$scope', 'PhotoData', '$document', '$location', '$routeParams', function($scope, PhotoData, $document, $location, $routeParams) {
+photosApp.controller('PhotoController', ['$rootScope', '$scope', 'PhotoData', '$document', '$location', '$routeParams', function($rootScope, $scope, PhotoData, $document, $location, $routeParams) {
 	PhotoData(function (photos) {
 
 		var currentPhotoKey = 0;
@@ -7,6 +7,7 @@ photosApp.controller('PhotoController', ['$scope', 'PhotoData', '$document', '$l
 			if (photo.hash === $routeParams.photoHash) {
 				currentPhotoKey = key;
 				$scope.photo = photo;
+				$rootScope.title = $scope.photo.title;
 			}
 		});
 

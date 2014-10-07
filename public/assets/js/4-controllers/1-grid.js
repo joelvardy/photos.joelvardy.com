@@ -1,4 +1,6 @@
-photosApp.controller('GridController', ['$scope', '$window', '$timeout', 'PhotoData', 'GridPosition', function($scope, $window, $timeout, PhotoData, GridPosition) {
+photosApp.controller('GridController', ['$rootScope', '$scope', '$window', '$timeout', 'PhotoData', 'GridPosition', function($rootScope, $scope, $window, $timeout, PhotoData, GridPosition) {
+
+	$rootScope.title = 'Photos Taken By Joel Vardy';
 
 	PhotoData(function (photos) {
 

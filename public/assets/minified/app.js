@@ -353,7 +353,9 @@ photosApp.directive('jvPhotoFill', ['$window', function ($window) {
 	};
 }]);
 
-photosApp.controller('GridController', ['$scope', '$window', '$timeout', 'PhotoData', 'GridPosition', function($scope, $window, $timeout, PhotoData, GridPosition) {
+photosApp.controller('GridController', ['$rootScope', '$scope', '$window', '$timeout', 'PhotoData', 'GridPosition', function($rootScope, $scope, $window, $timeout, PhotoData, GridPosition) {
+
+	$rootScope.title = 'Photos Taken By Joel Vardy';
 
 	PhotoData(function (photos) {
 
@@ -375,7 +377,7 @@ photosApp.controller('GridController', ['$scope', '$window', '$timeout', 'PhotoD
 
 }]);
 
-photosApp.controller('PhotoController', ['$scope', 'PhotoData', '$document', '$location', '$routeParams', function($scope, PhotoData, $document, $location, $routeParams) {
+photosApp.controller('PhotoController', ['$rootScope', '$scope', 'PhotoData', '$document', '$location', '$routeParams', function($rootScope, $scope, PhotoData, $document, $location, $routeParams) {
 	PhotoData(function (photos) {
 
 		var currentPhotoKey = 0;
@@ -384,6 +386,7 @@ photosApp.controller('PhotoController', ['$scope', 'PhotoData', '$document', '$l
 			if (photo.hash === $routeParams.photoHash) {
 				currentPhotoKey = key;
 				$scope.photo = photo;
+				$rootScope.title = $scope.photo.title;
 			}
 		});
 

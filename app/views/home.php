@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='PhotosApp'>
 	<head>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-		<title>Photos Taken By Joel Vardy</title>
+		<title ng-bind="title"></title>
 		<meta name="description" content="I've taken thousands of photographs, have a look at this collection of my favourite ones." />
 
 		<link rel="stylesheet" href="/assets/minified/design.css" />
@@ -12,7 +12,7 @@
 		<script src="/assets/minified/app.js"></script>
 
 	</head>
-	<body ng-app='PhotosApp'>
+	<body>
 
 		<div id="page" ng-view>
 
