@@ -1,8 +1,7 @@
 <?php
 
 // Define error reporting
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+error_reporting(0);
 
 // Set some paths
 define('BASE_PATH', realpath(dirname(__FILE__)));
