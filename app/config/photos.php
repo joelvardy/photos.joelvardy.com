@@ -9,7 +9,7 @@ return (object) array(
 			'quality' => 70
 		),
 		'small' => (object) array(
-			'max_dimension' => 800,
+			'max_dimension' => 700,
 			'quality' => 60
 		)
 	)
