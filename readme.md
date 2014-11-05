@@ -35,6 +35,7 @@ The project uses Composer, NPM, and Bower for package management, to install pac
 ```
 composer install
 npm install
+bower install
 ```
 
 ### SASS and JavaScript
@@ -48,9 +49,13 @@ gulp
 gulp watch
 ```
 
-### Bower
+### Development Server
 
-Currently the `/bower_modules` directory has been checked in to the repo. So there is no need to run `bower install`
+You can use the built in PHP server for previewing changes on a local development machine, to do this run the followung command:
+
+```
+php -S 127.0.0.1:1337 -t public public/index.php
+```
 
 ## Notes
 
