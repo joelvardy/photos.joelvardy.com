@@ -2,7 +2,7 @@
 	"name": "photos.joelvardy.com",
 	"private": true,
 	"dependencies": {
-		"gulp": "3.8.7",
+		"gulp": "3.8.9",
 		"del": "0.1.3",
 		"gulp-concat": "2.3.4",
 		"gulp-notify": "1.5.0",
