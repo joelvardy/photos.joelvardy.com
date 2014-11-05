@@ -11,7 +11,6 @@ var gulp = require('gulp'),
 gulp.task('styles', function () {
 	return gulp.src('public/assets/sass/design.scss')
 	.pipe(sass({
-		sourcemap: true,
 		style: 'compressed'
 	}))
 	.on('error', notify.onError(function (error) {
