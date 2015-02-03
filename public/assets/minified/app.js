@@ -270,6 +270,12 @@ photosApp.run(['$rootScope', '$window', '$location', function ($rootScope, $wind
 
 }]);
 
+window.addEventListener('load', function(event) {
+	if (navigator.appVersion.indexOf('Win') !=- 1) {
+		document.querySelector('div.grid').style.marginRight = '-50px';
+	}
+});
+
 photosApp.factory('PhotoData', ['$http', function ($http) {
 
 	var data = [];
