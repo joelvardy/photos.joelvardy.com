@@ -2,7 +2,7 @@
 <?php
 
 // Initialise the application
-require('init.php');
+require(__DIR__.'/init.php');
 
 use App\Console;
 use App\Photos;
@@ -32,37 +32,33 @@ foreach ($data as $photo) {
 	foreach ($photos->sizes() as $size => $size_info) {
 
 		// If the processed folder does not exist, create it
-		if ( ! file_exists($photo_folder)) {
-			mkdir($photo_folder);
-		}
+		if ( ! file_exists($photo_folder)) mkdir($photo_folder);
 
 		$filepath = $photo_folder.'/'.$size.'.jpg';
 
-		// Check whether each size exists
-		if ( ! file_exists($filepath)) {
+		// Check whether the file already exists
+		if (file_exists($filepath)) continue;
 
-			Console::output('We need to process the '.$size.' version of '.$photo->filename);
+        Console::output('We need to process the '.$size.' version of '.$photo->filename);
 
-			// Open image
-			$image = Image::make($photos->directory('original').'/'.$photo->filename);
+        // Open image
+        $image = Image::make($photos->directory('original').'/'.$photo->filename);
 
-			// Resize
-			list($width, $height, $type, $attr) = getimagesize($photos->directory('original').'/'.$photo->filename);
-			if ($height > $width) {
-				$image->heighten($size_info->max_dimension);
-			} else {
-				$image->widen($size_info->max_dimension);
-			}
+        // Resize
+        list($width, $height) = getimagesize($photos->directory('original').'/'.$photo->filename);
+        if ($height > $width) {
+            $image->heighten($size_info->max_dimension);
+        } else {
+            $image->widen($size_info->max_dimension);
+        }
 
-			try {
-				$image->save($filepath, $size_info->quality);
-				Console::output("\tSaved processed image.");
-			} catch (Exception $e) {
-				Console::output("\tCould not save processed image.");
-				$issues++;
-			}
-
-		}
+        try {
+            $image->save($filepath, $size_info->quality);
+            Console::output("\tSaved processed image.");
+        } catch (Exception $e) {
+            Console::output("\tCould not save processed image.");
+            $issues++;
+        }
 
 	}
 

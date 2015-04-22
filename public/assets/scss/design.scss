@@ -1,4 +1,4 @@
-@import '_reset';
+@import 'reset';
 
 html {
 	background: #f2efeb;
@@ -12,7 +12,7 @@ body {
 	position: relative;
 }
 
-@import '_elements';
+@import 'elements';
 
 img.hero {
 	display: block;
