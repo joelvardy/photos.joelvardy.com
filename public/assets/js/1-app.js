@@ -10,7 +10,10 @@ photosApp.config(['$routeProvider', '$locationProvider', function ($routeProvide
 		controller: 'PhotoController',
 	});
 
-	$locationProvider.html5Mode(true);
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
+	});
 
 }]);
 
