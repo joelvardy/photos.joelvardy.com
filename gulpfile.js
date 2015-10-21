@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 	sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifyCSS = require('gulp-minify-css'),
-	uglify = require('gulp-uglifyjs');
+	uglify = require('gulp-uglify');
 
 
 // Styles
