@@ -34,6 +34,19 @@ npm install
 bower install
 ```
 
+### Servers
+
+You can either use a Homestead virtual machine, or the simple built-in PHP server.
+
+```
+# Homestead virtual machine
+vagrant up
+echo 192.168.10.12 photos.joelvardy.dev | sudo tee -a /etc/hosts
+
+# PHP built in server
+php -S 127.0.0.1:1337 -t public public/index.php
+```
+
 ### SASS and JavaScript
 
 To minify JavaScript and compile SASS run:
@@ -43,14 +56,6 @@ gulp
 
 # Or to watch for changes
 gulp watch
-```
-
-### Development Server
-
-You can use the built in PHP server for previewing changes on a local development machine, to do this run the followung command:
-
-```
-php -S 127.0.0.1:1337 -t public public/index.php
 ```
 
 ## Notes
