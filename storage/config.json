@@ -1,0 +1,18 @@
+{
+    "directories": {
+        "unprocessed": "photos",
+        "processed": "photos"
+    },
+    "sizes": [
+        {
+            "slug": "thumbnail",
+            "directory": "thumbnail",
+            "maxDimention": 512
+        },
+        {
+            "slug": "large",
+            "directory": "large",
+            "maxDimention": 2048
+        }
+    ]
+}

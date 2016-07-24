@@ -1,23 +1,34 @@
 <?php
 
-require(dirname(__DIR__).'/init.php');
+require(dirname(__DIR__) . '/init.php');
 
-// Allow internal PHP development server to route correctly
-if (php_sapi_name() == 'cli-server') {
-	$_SERVER['SCRIPT_NAME'] = '/index.php';
-	$uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-	if ($uri !== '/' && file_exists('public/'.$uri)) {
-		return false;
-	}
-}
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
-$app = new \Slim\Slim([
-	'templates.path' => VIEWS_PATH
-]);
+$app = new \Slim\App();
+$container = $app->getContainer();
 
-// Load application routes
-foreach (glob(ROUTES_PATH.'/*.php') as $route) {
-	require($route);
-}
+$container['notFoundHandler'] = function ($container) {
+    return function ($request, $response) use ($container) {
+        return $response->withStatus(302)->withHeader('Location', '/');
+    };
+};
+
+$container['notAllowedHandler'] = function ($container) {
+    return function ($request, $response, $methods) use ($container) {
+        return $response->withStatus(405)
+            ->withHeader('Allow', implode(', ', $methods))
+            ->withHeader('Content-type', 'text/html')
+            ->write('Method must be one of: ' . implode(', ', $methods));
+    };
+};
+
+$app->get('/', function (Request $request, Response $response) {
+    $photos = (new \App\Models\Photo())->get();
+    ob_start();
+    require(dirname(__DIR__) . '/app/views/home.php');
+    $response->getBody()->write(ob_get_clean());
+    return $response;
+});
 
 $app->run();

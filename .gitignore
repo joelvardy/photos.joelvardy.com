@@ -1,25 +1,8 @@
-# Operating System
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-.Spotlight-V100
-.Trashes
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-Icon
-
-
 # Composer
 /vendor
 
 # Node
 /node_modules
-
-# Bower (I have decided not to check these in as source is compiled into /public/assets/minified)
 /bower_components
 
 # SASS
@@ -27,6 +10,9 @@ Icon
 
 # Homestead
 /.vagrant
+/Homestead.yaml
+/Vagrantfile
 
 # Don't save processed images in version control
-public/assets/photos/*
+/public/photos/*
+/storage/processed-photos.json

@@ -1,9 +1,8 @@
 {
-	"name": "photos.joelvardy.com",
-	"private": true,
-	"dependencies": {
-		"angular": "1.*",
-		"angular-route": "1.*",
-		"angular-touch": "1.*"
-	}
+  "name": "photos.joelvardy.com",
+  "private": true,
+  "dependencies": {
+    "jquery-colorbox": "^1.6.4",
+    "wookmark": "wookmark-jquery#^2.1.2"
+  }
 }

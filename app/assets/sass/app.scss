@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    background: #f2efeb;
+    box-sizing: border-box;
+    color: #222;
+    font: 0.9em Helvetica, Arial, sans-serif;
+    text-shadow: 1px 1px 0 rgba(white, 0.25);
+}
+
+@import 'lightbox';
+
+img.hero {
+    height: auto;
+    width: 100%;
+}
+
+.photos-container {
+
+    position: relative;
+    visibility: hidden;
+
+    &.wookmark-initialised {
+        visibility: visible;
+    }
+
+    .photo {
+
+        background-position: center;
+        background-size: cover;
+        display: block;
+
+        &:after {
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        &.portrait {
+            &:after {
+                padding-bottom: calc(200% + 30px);
+            }
+        }
+
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+
+    }
+
+    .placeholder {
+        background: rgba(black, 0.05);
+    }
+
+}
+
+p.information {
+
+    padding-bottom: 20px;
+    text-align: center;
+
+    a {
+        color: #ff8800;
+        text-decoration: none;
+    }
+
+}

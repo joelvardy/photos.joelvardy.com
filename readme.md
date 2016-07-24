@@ -4,58 +4,35 @@ I like taking photos, most of the time I upload photos to Facebook; however I di
 
 I didn't want to build a heavy database driven gallery so I decided to build it (like my [personal website][joelvardy]) with static data files stored in version control.
 
-## Configuration
-
-There are some configurable options in the `/app/config/photos.php` file which allow me to define image size, and quality.
-
-## Adding Photos
-
-Add a new photo to the `/photos` directory and update the `/photos/_data.json` file.
-
-The only required field is the `filename` - other fields are passed to the view, so you can for example add a description to each photo.
-
-## Processing Photos
-
-Before the photos are displayed, you must run the processing script.
-
-```
-php process
-```
-
-**Note::** The processed directory (specified in the photos config file) must be writable by the php script.
-
 ## Development
 
-The project uses Composer, NPM, and Bower for package management, to install packages run:
+ * Config options are found at `/storage/config.json`
+ * Run `composer install`
+ * Run `npm install`
+ * Run `bower install`
+ * Generate assets `gulp --production`
+
+ ### Server
+
+ Run a local Homestead virtual machine, with the following:
 
 ```
-composer install
-npm install
-bower install
-```
-
-### Servers
-
-You can either use a Homestead virtual machine, or the simple built-in PHP server.
-
-```
-# Homestead virtual machine
-vagrant up
+# First use
+php vendor/bin/homestead make
+vim Homestead.yaml
 echo 192.168.10.12 photos.joelvardy.dev | sudo tee -a /etc/hosts
 
-# PHP built in server
-php -S 127.0.0.1:1337 -t public public/index.php
+# Homestead virtual machine
+vagrant up
 ```
 
-### SASS and JavaScript
+### Adding Photos
 
-To minify JavaScript and compile SASS run:
+Add a new photo to the `/photos` directory and update the `/storage/photos.json` file.
 
+Then run:
 ```
-gulp
-
-# Or to watch for changes
-gulp watch
+./run process:photos
 ```
 
 ## Notes

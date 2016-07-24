@@ -1,15 +1,16 @@
 {
-	"require": {
-		"slim/slim": "2.*",
-		"intervention/image": "1.*"
-	},
-	"autoload": {
-		"psr-0": {
-			"App": "app/libraries/"
-		}
-	},
-	"minimum-stability": "dev",
-	"require-dev": {
-		"laravel/homestead": "^3.0"
-	}
+    "require": {
+        "slim/slim": "^3.4",
+        "symfony/console": "^3.1",
+        "intervention/image": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "laravel/homestead": "^3.0"
+    }
 }

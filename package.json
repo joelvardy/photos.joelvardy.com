@@ -1,13 +1,9 @@
 {
-	"name": "photos.joelvardy.com",
-	"private": true,
-	"dependencies": {
-		"gulp": "*",
-		"del": "*",
-		"gulp-ruby-sass": "*",
-        "gulp-autoprefixer": "*",
-        "gulp-minify-css": "*",
-        "gulp-concat": "*",
-        "gulp-uglify": "*"
-	}
+    "name": "photos.joelvardy.com",
+    "private": true,
+    "dependencies": {},
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "laravel-elixir": "^5.0.0"
+    }
 }
