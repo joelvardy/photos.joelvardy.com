@@ -76,10 +76,6 @@ class ProcessPhotosCommand extends Command
 
         $intervention = new InterventionImage();
 
-        if (!file_exists(dirname($destinationFilepath))) {
-            mkdir(dirname($destinationFilepath), 777, true);
-        }
-
         $image = $intervention->make($sourceFilepath);
         if ($image->width() > $image->height()) {
             $image->widen($maxDimention);
