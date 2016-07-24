@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Photos Taken By Joel Vardy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="I've taken thousands of photographs, this is a collection of my favourite ones.">
         <link rel="stylesheet" href="/css/app.css">
         <script src="/js/libs.js"></script>
