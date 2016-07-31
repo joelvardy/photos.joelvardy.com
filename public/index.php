@@ -24,7 +24,7 @@ $container['notAllowedHandler'] = function ($container) {
 };
 
 $app->get('/', function (Request $request, Response $response) {
-    $photos = (new \App\Models\Photo())->get();
+    $photos = (new \App\Models\Photo())->get() ?: [];
     ob_start();
     require(dirname(__DIR__) . '/app/views/home.php');
     $response->getBody()->write(ob_get_clean());
