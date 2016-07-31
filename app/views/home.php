@@ -12,7 +12,7 @@
         <img class="hero" alt="Joel Vardy on Bamford Edge" src="/images/joel-vardy-bamford-edge.jpg">
         <div class="photos-container">
             <?php foreach (array_reverse($photos) as $photo) : ?>
-                <a class="photo <?php echo (($photo->sizes->thumbnail->width / $photo->sizes->thumbnail->height) < 1 ? 'portrait' : ''); ?>" href="<?php echo $photo->sizes->large->filename; ?>" style="background-image: url('<?php echo $photo->sizes->thumbnail->filename; ?>');"></a>
+                <a class="photo <?php echo (($photo->sizes->thumbnail->width / $photo->sizes->thumbnail->height) < 1 ? 'portrait' : ''); ?>" href="<?php echo $photo->sizes->large->filename; ?>" data-title="<?php echo $photo->title; ?>" style="background-image: url('<?php echo $photo->sizes->thumbnail->filename; ?>');"></a>
             <?php endforeach; ?>
         </div>
         <p class="information">A collection of my favourite photographs, <a href="https://joelvardy.com/" title="Joel Vardy's personal website">Joel Vardy</a> - source code can be found on <a href="https://github.com/joelvardy/photos.joelvardy.com" title="Source code on GitHub">GitHub</a>.</p>

@@ -5,7 +5,7 @@ $(function () {
         maxWidth: '95%',
         maxHeight: '95%',
         title: function () {
-            return $('img', this).attr('alt');
+            return $(this).data('title');
         }
     });
 
