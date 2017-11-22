@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Photos - Joel Vardy</title>
+        <meta name="description" content="I've taken thousands of photographs, this is a collection of my favourite ones.">
+        <meta name="theme-color" content="#0077ff">
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-45404963-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, 'Nimbus Sans L', 'Liberation Sans', Arial, sans-serif;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .photo {
+                background: no-repeat center center;
+                background-size: cover;
+                height: 100vh;
+                width: 100%;
+                position: relative;
+                display: block;
+            }
+
+            .photo .info {
+                position: absolute;
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border-radius: 3px;
+                bottom: 50px;
+                right: 50px;
+                padding: 10px 15px;
+                width: 275px;
+                text-align: center;
+            }
+
+            .photo .info p {
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            .photo .info hr {
+                border: 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.5);
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <a class="photo" v-for="photo in photos" v-bind:href="'https://500px.com' + photo.url" v-for="photo in photos" v-bind:title="photo.name" target="_blank" v-bind:style="{ backgroundImage: 'url('+photo.images[1].url+')' }">
+                <div class="info">
+                    <p>{{ photo.description }}</p>
+                    <hr>
+                    <h4>{{ photo.camera.name }}</h4>
+                    <h5>{{ photo.camera.focalLength }}mm / f/{{ photo.camera.aperture }} / {{ photo.camera.shutterSpeed }}s / ISO {{ photo.camera.iso }}</h5>
+                </div>
+            </a>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    photos: [],
+                },
+                mounted: function () {
+                    let _this = this;
+                    fetch('https://ovd44er28e.execute-api.eu-west-1.amazonaws.com/production/photos')
+                    .then(response => response.json())
+                    .then((photos) => {
+                        _this.photos = photos;
+                    })
+                    .catch((error) => alert('Error loading photos :('));
+                },
+            })
+        </script>
+    </body>
+</html>

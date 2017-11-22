@@ -1,9 +1,9 @@
 {
-    "name": "photos.joelvardy.com",
-    "private": true,
-    "dependencies": {},
-    "devDependencies": {
-        "gulp": "^3.9.1",
-        "laravel-elixir": "^5.0.0"
-    }
+  "name": "photos-joelvardy-com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-finch": "^1.2.2"
+  }
 }

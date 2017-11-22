@@ -1,0 +1,8 @@
+{
+  "name": "getPhotos",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "dependencies": {
+    "500px": "^0.5.1"
+  }
+}

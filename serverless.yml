@@ -1,0 +1,29 @@
+service: photos-joelvardy-com
+
+plugins:
+  - serverless-finch
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: production
+  region: eu-west-1
+
+functions:
+  getPhotos:
+    handler: getPhotos/handler.getPhotos
+    memorySize: 1024
+    timeout: 5
+    events:
+      - http:
+          path: photos
+          method: get
+          cors: true
+          resp: json
+
+    environment:
+      API_CONSUMER_KEY: YYY
+
+custom:
+  client:
+    bucketName: photos.joelvardy.com

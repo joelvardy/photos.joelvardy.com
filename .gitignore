@@ -1,18 +1,5 @@
-# Composer
-/vendor
+# Package directories
+node_modules
 
-# Node
-/node_modules
-/bower_components
-
-# SASS
-.sass-cache
-
-# Homestead
-/.vagrant
-/Homestead.yaml
-/Vagrantfile
-
-# Don't save processed images in version control
-/public/photos/*
-/storage/processed-photos.json
+# Serverless directories
+.serverless
