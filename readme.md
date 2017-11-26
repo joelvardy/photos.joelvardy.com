@@ -12,4 +12,5 @@ serverless deploy --aws-profile joelvardy
 
 ```
 serverless client deploy --aws-profile joelvardy
+aws cloudfront create-invalidation --distribution-id YYY --paths /index.html --profile=joelvardy
 ```

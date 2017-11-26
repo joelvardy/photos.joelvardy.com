@@ -68,9 +68,11 @@
             <a class="photo" v-for="photo in photos" v-bind:href="'https://500px.com' + photo.url" v-for="photo in photos" v-bind:title="photo.name" target="_blank" v-bind:style="{ backgroundImage: 'url('+photo.images[1].url+')' }">
                 <div class="info">
                     <p>{{ photo.description }}</p>
-                    <hr>
-                    <h4>{{ photo.camera.name }}</h4>
-                    <h5>{{ photo.camera.focalLength }}mm / f/{{ photo.camera.aperture }} / {{ photo.camera.shutterSpeed }}s / ISO {{ photo.camera.iso }}</h5>
+                    <template v-if="photo.camera.name && photo.camera.focalLength && photo.camera.aperture && photo.camera.shutterSpeed && photo.camera.iso">
+                        <hr>
+                        <h4>{{ photo.camera.name }}</h4>
+                        <h5>{{ photo.camera.focalLength }}mm / f/{{ photo.camera.aperture }} / {{ photo.camera.shutterSpeed }}s / ISO {{ photo.camera.iso }}</h5>
+                    </template>
                 </div>
             </a>
         </div>
